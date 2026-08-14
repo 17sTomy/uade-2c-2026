@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Resumen Clase 1 — Derecho Informático | UADE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #122033;
+      --ink-soft: #2a3b52;
+      --muted: #5c6b7e;
+      --paper: #f3f1eb;
+      --paper-2: #e8eef4;
+      --line: #d5dde7;
+      --accent: #0b6e6a;
+      --accent-2: #c45d2c;
+      --highlight: #dff3f1;
+      --example: #fff4e8;
+      --example-border: #e8b88a;
+      --shadow: 0 18px 50px rgba(18, 32, 51, 0.08);
+      --radius: 18px;
+      --nav-w: 300px;
+      --max: 820px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Manrope", system-ui, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 600px at 10% -10%, #d9e8f2 0%, transparent 55%),
+        radial-gradient(900px 500px at 100% 0%, #f6e5d8 0%, transparent 45%),
+        linear-gradient(180deg, #f7f5f0 0%, var(--paper) 40%, #eef2f6 100%);
+      line-height: 1.65;
+    }
+
+    a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    a:hover { color: var(--accent-2); }
+
+    .skip {
+      position: absolute; left: -999px; top: 0;
+    }
+    .skip:focus { left: 12px; top: 12px; background: #fff; padding: 8px 12px; z-index: 100; }
+
+    .shell {
+      display: grid;
+      grid-template-columns: var(--nav-w) 1fr;
+      min-height: 100vh;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow: auto;
+      padding: 28px 20px 40px;
+      border-right: 1px solid var(--line);
+      background: rgba(255,255,255,0.55);
+      backdrop-filter: blur(10px);
+    }
+    .brand {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin: 0 0 4px;
+    }
+    .brand-sub {
+      margin: 0 0 22px;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+    .home-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 22px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+    .home-link:hover { color: var(--accent); }
+    .toc-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      font-weight: 700;
+      margin: 0 0 10px;
+    }
+    .toc { list-style: none; margin: 0; padding: 0; }
+    .toc > li { margin: 0 0 2px; }
+    .toc a {
+      display: block;
+      padding: 7px 10px;
+      border-radius: 10px;
+      color: var(--ink-soft);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: background .2s, color .2s, transform .2s;
+    }
+    .toc a:hover,
+    .toc a.active {
+      background: var(--highlight);
+      color: var(--accent);
+      transform: translateX(2px);
+    }
+
+    .toc-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 2px;
+    }
+    .toc-row > a { min-width: 0; }
+
+    .acc-btn {
+      width: 30px;
+      height: 30px;
+      border: none;
+      border-radius: 8px;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      font: inherit;
+      font-size: 0.85rem;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .2s, color .2s, transform .2s;
+    }
+    .acc-btn:hover {
+      background: var(--highlight);
+      color: var(--accent);
+    }
+    .acc-btn::before {
+      content: "▸";
+      display: block;
+      transition: transform .22s ease;
+    }
+    .toc-group.open > .toc-row .acc-btn::before {
+      transform: rotate(90deg);
+    }
+    .toc-group.open > .toc-row .acc-btn {
+      color: var(--accent);
+    }
+
+    .toc-subs {
+      list-style: none;
+      margin: 0;
+      padding: 0 0 6px 8px;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height .28s ease, opacity .22s ease;
+    }
+    .toc-group.open > .toc-subs {
+      max-height: 420px;
+      opacity: 1;
+    }
+    .toc-subs a {
+      font-size: 0.82rem;
+      color: var(--muted);
+      padding: 5px 10px;
+    }
+
+    .menu-btn {
+      display: none;
+      position: fixed;
+      top: 14px;
+      right: 14px;
+      z-index: 50;
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 999px;
+      padding: 10px 14px;
+      font: inherit;
+      font-weight: 600;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+    }
+
+    /* Main */
+    main {
+      padding: 36px 28px 80px;
+    }
+    .content {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .hero {
+      padding: 28px 0 18px;
+      margin-bottom: 28px;
+      border-bottom: 1px solid var(--line);
+      animation: rise .7s ease both;
+    }
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .hero h1 {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      margin: 0 0 12px;
+    }
+    .hero p {
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: 1.05rem;
+      max-width: 48ch;
+    }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+    .chip {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--ink-soft);
+      background: rgba(255,255,255,0.7);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 12px;
+    }
+
+    section {
+      margin: 42px 0;
+      scroll-margin-top: 24px;
+      animation: rise .6s ease both;
+    }
+    section h2 {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 1.7rem;
+      letter-spacing: -0.02em;
+      margin: 0 0 12px;
+      color: var(--ink);
+    }
+    section h3 {
+      font-size: 1.05rem;
+      margin: 22px 0 8px;
+      color: var(--accent);
+      letter-spacing: -0.01em;
+    }
+    p { margin: 0 0 12px; }
+    ul, ol { margin: 0 0 14px; padding-left: 1.2rem; }
+    li { margin: 0 0 8px; }
+    strong { font-weight: 700; color: var(--ink); }
+
+    .formula {
+      margin: 14px 0 18px;
+      padding: 14px 16px;
+      border-left: 4px solid var(--accent);
+      background: var(--highlight);
+      border-radius: 0 12px 12px 0;
+      font-weight: 600;
+    }
+
+    .ejemplo {
+      margin: 12px 0 16px;
+      padding: 12px 14px;
+      background: var(--example);
+      border: 1px solid var(--example-border);
+      border-radius: 12px;
+      font-size: 0.95rem;
+    }
+    .ejemplo::before {
+      content: "Ejemplo";
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-2);
+      margin-bottom: 4px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 12px 0 16px;
+    }
+    .compare {
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.55);
+    }
+    .compare h4 {
+      margin: 0 0 6px;
+      font-size: 0.95rem;
+      color: var(--accent);
+    }
+    .compare p { margin: 0; font-size: 0.92rem; color: var(--ink-soft); }
+
+    .laws {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+      margin: 12px 0 16px;
+    }
+    .law {
+      padding: 12px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.7);
+      border: 1px solid var(--line);
+    }
+    .law code {
+      display: block;
+      font-family: "Manrope", sans-serif;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 2px;
+    }
+    .law span { font-size: 0.88rem; color: var(--ink-soft); }
+
+    .key-list li { padding-left: 2px; }
+
+    footer {
+      margin-top: 48px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 920px) {
+      .shell { grid-template-columns: 1fr; }
+      .menu-btn { display: inline-flex; align-items: center; gap: 8px; }
+      .sidebar {
+        position: fixed;
+        inset: 0 auto 0 0;
+        width: min(86vw, 320px);
+        transform: translateX(-105%);
+        transition: transform .28s ease;
+        z-index: 40;
+        box-shadow: var(--shadow);
+        background: #fbfaf7;
+      }
+      .sidebar.open { transform: translateX(0); }
+      .backdrop {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(18,32,51,.35);
+        z-index: 30;
+      }
+      .backdrop.show { display: block; }
+      main { padding: 72px 18px 64px; }
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+  <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="sidebar">Índice</button>
+  <div class="backdrop" id="backdrop" hidden></div>
+
+  <div class="shell">
+    <aside class="sidebar" id="sidebar" aria-label="Índice de temas">
+      <a class="home-link" href="../index.html">← Volver a materias</a>
+      <p class="brand">Derecho Informático</p>
+      <p class="brand-sub">Clase 1 · UADE · Unidad 1</p>
+      <p class="toc-label">Índice</p>
+      <nav>
+        <ul class="toc" id="toc">
+          <li class="toc-group">
+            <div class="toc-row">
+              <a href="#vision">1. Visión general</a>
+              <button type="button" class="acc-btn" aria-expanded="false" aria-label="Abrir subtemas"></button>
+            </div>
+            <ul class="toc-subs">
+              <li><a href="#temario">Temario</a></li>
+              <li><a href="#cursada">Cursada</a></li>
+            </ul>
+          </li>
+
+          <li class="toc-group">
+            <div class="toc-row">
+              <a href="#derecho">2. El Derecho</a>
+              <button type="button" class="acc-btn" aria-expanded="false" aria-label="Abrir subtemas"></button>
+            </div>
+            <ul class="toc-subs">
+              <li><a href="#natural-positivo">Natural y positivo</a></li>
+              <li><a href="#moral">Moral y Derecho</a></li>
+              <li><a href="#publico-privado">Público y privado</a></li>
+              <li><a href="#fuentes">Fuentes</a></li>
+              <li><a href="#principios-latinos">Principios latinos</a></li>
+            </ul>
+          </li>
+
+          <li class="toc-group">
+            <div class="toc-row">
+              <a href="#estado">3. Estado argentino</a>
+              <button type="button" class="acc-btn" aria-expanded="false" aria-label="Abrir subtemas"></button>
+            </div>
+            <ul class="toc-subs">
+              <li><a href="#que-es-estado">Qué es el Estado</a></li>
+              <li><a href="#componentes-estado">Componentes</a></li>
+              <li><a href="#formas-estado">Unitario, federal, confederación</a></li>
+              <li><a href="#secesion-nulificacion">Secesión y nulificación</a></li>
+              <li><a href="#federalismo">Federalismo (Argentina)</a></li>
+              <li><a href="#monarquia-republica">Monarquía vs. República</a></li>
+              <li><a href="#tipos-democracia">Tipos de democracia</a></li>
+            </ul>
+          </li>
+
+          <li><a href="#dos-caras">4. Dos caras</a></li>
+          <li><a href="#inf-juridica">5. Informática Jurídica</a></li>
+          <li><a href="#der-informatico">6. Derecho Informático</a></li>
+          <li><a href="#consecuencias">7. Consecuencias jurídicas</a></li>
+          <li><a href="#propio-impropio">8. Propio e impropio</a></li>
+          <li><a href="#autonomia">9. Autonomía</a></li>
+          <li><a href="#principios">10. Principios propios</a></li>
+          <li><a href="#ideas">11. Ideas clave</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main>
+      <div class="content" id="contenido">
+        <header class="hero">
+          <span class="eyebrow">UADE · Resumen de estudio</span>
+          <h1>Clase 1 — Informática y Derecho</h1>
+          <p>
+            Cómo el Derecho responde a los efectos jurídicos de la informática y las nuevas tecnologías:
+            desde datos personales y firma digital hasta delitos, contratos electrónicos y prueba digital.
+          </p>
+          <div class="meta">
+            <span class="chip">Prof. Rodolfo M. Lascano</span>
+            <span class="chip">Unidad 1</span>
+            <span class="chip">Propiedad Intelectual + TICs</span>
+          </div>
+        </header>
+
+        <!-- 1 -->
+        <section id="vision">
+          <h2>1. Visión general del curso</h2>
+          <p>
+            La materia estudia la <strong>interrelación entre Derecho e informática</strong>:
+            propiedad intelectual, datos personales, teletrabajo, IA, redes sociales, documento electrónico,
+            firma digital, contratos informáticos/electrónicos, fintech, cryptoactivos, delitos informáticos y prueba informática.
+          </p>
+
+          <h3 id="temario">Temario</h3>
+          <ul>
+            <li>Derecho y tecnología</li>
+            <li>Propiedad Intelectual · Marcas · Patentes</li>
+            <li>Derechos de autor / Derecho de Autor en Internet</li>
+            <li>Datos Personales</li>
+            <li>Teletrabajo / Inteligencia Artificial / Redes sociales</li>
+            <li>Documento Electrónico / Firma Digital</li>
+            <li>Contratos Informáticos / Electrónicos / Fintech / Cryptoactivos</li>
+            <li>Delitos Informáticos · La Prueba Informática</li>
+          </ul>
+
+          <h3 id="cursada">Cursada y bibliografía</h3>
+          <ul>
+            <li><strong>Asistencia:</strong> 75%.</li>
+            <li><strong>Evaluación:</strong> dos parciales, promoción, recuperatorio, final adelantado y final regular.</li>
+            <li><strong>TP:</strong> análisis de fallos.</li>
+            <li><strong>Bibliografía:</strong> Eldial.com, artículos y fallos. Los PPT son guía, no alcanzan solos. Obras: Mitelman (Propiedad Industrial); Lucero y Kohen (Delitos Informáticos).</li>
+          </ul>
+        </section>
+
+        <!-- 2 -->
+        <section id="derecho">
+          <h2>2. El Derecho: concepto y generalidades</h2>
+          <p>
+            <strong>Definición:</strong> conjunto de normas jurídicas que regulan la convivencia social.
+            <strong>Finalidad:</strong> orden, seguridad y, fundamentalmente, la <strong>justicia</strong>.
+          </p>
+          <div class="formula">Característica clave: la <em>coercibilidad</em> — el Estado puede obligar a su cumplimiento.</div>
+          <div class="ejemplo">
+            Si alguien incumple un contrato, no alcanza con “sentir culpa”: la otra parte puede demandar y el Estado puede ejecutar la sentencia (embargo, etc.). Eso es coercibilidad.
+          </div>
+
+          <h3 id="natural-positivo">Derecho Natural y Derecho Positivo</h3>
+          <div class="grid-2">
+            <div class="compare">
+              <h4>Derecho Natural</h4>
+              <p>Principios universales e inmutables, inherentes al ser humano (vida, libertad).</p>
+            </div>
+            <div class="compare">
+              <h4>Derecho Positivo</h4>
+              <p>Derecho escrito y vigente en un lugar y tiempo (ej.: Código Civil y Comercial argentino).</p>
+            </div>
+          </div>
+          <p><strong>Relación clave:</strong> el positivo debe tender a respetar los principios del natural.</p>
+          <div class="ejemplo">
+            Una ley positiva que autorizara la tortura chocaría con el derecho natural a la integridad física; el control de constitucionalidad y los tratados de DD.HH. buscan ese límite.
+          </div>
+
+          <h3 id="moral">Moral y Derecho</h3>
+          <ul>
+            <li><strong>Moral:</strong> interna, unilateral y no coactiva (remordimiento).</li>
+            <li><strong>Derecho:</strong> externo, bilateral (otro que exige) y <strong>coactivo</strong> (sanción legal).</li>
+          </ul>
+          <div class="ejemplo">
+            Mentirle a un amigo puede ser inmoral, pero no siempre es delito. En cambio, una estafa tipificada sí genera sanción penal o civil: ahí entra el Derecho.
+          </div>
+
+          <h3 id="publico-privado">Derecho Público y Privado</h3>
+          <ul>
+            <li><strong>Público:</strong> Estado y particulares (poder de imperio). Ej.: Penal, Administrativo, Constitucional.</li>
+            <li><strong>Privado:</strong> particulares en pie de igualdad. Ej.: Civil, Comercial.</li>
+          </ul>
+          <p><strong>Importancia práctica:</strong> define qué reglas aplicar en un contrato o litigio.</p>
+          <div class="ejemplo">
+            Un contrato entre dos empresas se rige por derecho privado. Una multa de AFIP o un proceso penal por phishing involucran derecho público.
+          </div>
+
+          <h3>Ramas con interés económico</h3>
+          <ul>
+            <li><strong>Comercial:</strong> actos de comercio y comerciantes.</li>
+            <li><strong>Tributario:</strong> impuestos y relación con el fisco.</li>
+            <li><strong>Laboral:</strong> empleador–empleado.</li>
+            <li><strong>Civil:</strong> base general (personas, contratos, derechos reales).</li>
+          </ul>
+
+          <h3 id="fuentes">Fuentes del Derecho</h3>
+          <p>¿De dónde surge la norma?</p>
+          <ol>
+            <li><strong>La Ley:</strong> fuente primordial en Argentina. Norma escrita de autoridad competente.</li>
+            <li><strong>Jurisprudencia:</strong> fallos de los jueces; guían casos futuros.</li>
+            <li><strong>Doctrina:</strong> opinión de expertos y juristas.</li>
+            <li><strong>Usos y costumbres:</strong> prácticas reiteradas que la ley admite como norma.</li>
+          </ol>
+          <div class="ejemplo">
+            La <strong>Ley 25.326</strong> (datos personales) es fuente legal. Un fallo como Belén Rodríguez aporta jurisprudencia sobre libertad de expresión e intimidad en Internet. Un tratado de Mitelman es doctrina.
+          </div>
+
+          <h3 id="principios-latinos">Principios generales (latín)</h3>
+          <p>Además de las fuentes formales, el Derecho se apoya en principios generales:</p>
+          <ul>
+            <li><strong>Non bis in idem:</strong> nadie puede ser perseguido o sancionado dos veces por el mismo hecho.</li>
+            <li><strong>Nullum crimen, nulla poena sine lege praevia:</strong> no hay delito ni pena sin ley previa que tipifique la conducta (legalidad penal).</li>
+            <li><strong>Pacta sunt servanda:</strong> los pactos/contratos deben cumplirse.</li>
+            <li><strong>Bona fide:</strong> actuación de buena fe (lealtad y honestidad).</li>
+          </ul>
+          <div class="ejemplo">
+            <strong>Non bis in idem:</strong> si ya fuiste absuelto por un hacking concreto, no pueden reabrir el mismo hecho por la misma vía. ·
+            <strong>Sine lege praevia:</strong> no se puede condenar por una conducta digital que aún no estaba tipificada cuando ocurrió. ·
+            <strong>Pacta sunt servanda:</strong> aceptaste un SaaS y debés pagar la suscripción. ·
+            <strong>Bona fide:</strong> no podés ocultar fallas graves de un software al venderlo.
+          </div>
+        </section>
+
+        <!-- 3 -->
+        <section id="estado">
+          <h2>3. Organización del Estado argentino</h2>
+
+          <h3 id="que-es-estado">¿Qué es el Estado?</h3>
+          <p>
+            El <strong>Estado</strong> es la organización política y jurídica de una comunidad sobre un territorio,
+            con poder soberano para dictar normas, gobernar y hacerlas cumplir. No es solo “el gobierno de turno”:
+            es la estructura permanente que permite la convivencia bajo un orden jurídico.
+          </p>
+          <div class="formula">
+            Estado ≈ población + territorio + gobierno + derecho + poder (soberano / de imperio)
+          </div>
+
+          <h3 id="componentes-estado">Componentes del Estado</h3>
+          <ul>
+            <li>
+              <strong>Población:</strong> el conjunto de personas vinculadas al Estado (nacionales y, en muchos aspectos,
+              habitantes/residentes). Es el elemento humano: sin pueblo no hay Estado.
+            </li>
+            <li>
+              <strong>Territorio:</strong> el espacio geográfico donde el Estado ejerce su autoridad
+              (suelo, subsuelo, espacio aéreo, mar territorial, etc.). Delimita hasta dónde alcanza el poder estatal.
+            </li>
+            <li>
+              <strong>Gobierno:</strong> el conjunto de órganos e instituciones que dirigen y administran el Estado
+              (en Argentina: Ejecutivo, Legislativo y Judicial, en los niveles nacional, provincial y municipal).
+            </li>
+            <li>
+              <strong>Derecho:</strong> el ordenamiento jurídico que organiza al Estado y regula la convivencia
+              (Constitución, leyes, decretos, jurisprudencia). El Estado se crea, limita y actúa a través del Derecho.
+            </li>
+            <li>
+              <strong>Poder:</strong> la capacidad de imperio para imponer decisiones y hacer cumplir las normas
+              (coercibilidad). Incluye la soberanía: no hay otro poder superior dentro del territorio, salvo límites
+              constitucionales e internacionales asumidos.
+            </li>
+          </ul>
+          <div class="ejemplo">
+            En Argentina: la <strong>población</strong> son los habitantes del país; el <strong>territorio</strong> va de La Quiaca a Ushuaia (y espacios marítimos/aéreos);
+            el <strong>gobierno</strong> lo ejercen Presidente, Congreso y jueces (más provincias y municipios);
+            el <strong>Derecho</strong> parte de la Constitución Nacional; el <strong>poder</strong> se ve cuando el Estado cobra impuestos, juzga un delito informático o ejecuta una sentencia.
+          </div>
+
+          <h3 id="formas-estado">Formas de Estado: unitario, federal y confederación</h3>
+          <p>
+            Según cómo se organiza el poder en el territorio, se distinguen distintas <strong>formas de Estado</strong>
+            (no confundir con la forma de gobierno: republicana, monárquica, etc.).
+          </p>
+          <div class="grid-2" style="grid-template-columns: 1fr;">
+            <div class="compare">
+              <h4>Estado unitario</h4>
+              <p>
+                Hay un <strong>único centro de poder</strong> político. El territorio puede dividirse en provincias,
+                departamentos o municipios, pero esas divisiones son <strong>administrativas</strong>:
+                no tienen soberanía propia ni constitución propia comparable a la de un Estado miembro.
+                El poder se concentra en el gobierno central.
+              </p>
+            </div>
+            <div class="compare">
+              <h4>Estado federal</h4>
+              <p>
+                Coexisten un <strong>gobierno central (Nación)</strong> y <strong>estados/provincias miembros</strong>
+                con autonomía política. Hay distribución constitucional de competencias: cada nivel tiene poderes propios.
+                Suele haber constitución federal + constituciones provinciales.
+              </p>
+            </div>
+            <div class="compare">
+              <h4>Confederación</h4>
+              <p>
+                Unión de <strong>Estados soberanos</strong> que se asocian por un tratado para fines comunes
+                (defensa, comercio, etc.), pero <strong>conservan su soberanía</strong>.
+                El vínculo es más débil y revocable: no hay un Estado único superior con poder de imperio pleno
+                sobre los miembros como en la federación.
+              </p>
+            </div>
+          </div>
+
+          <h3 id="secesion-nulificacion">Derechos reservados en la confederación: secesión y nulificación</h3>
+          <p>
+            Como los miembros siguen siendo soberanos, en la lógica confederal suelen reconocerse
+            <strong>derechos reservados</strong> que en un Estado federal típico no existen (o están muy limitados):
+          </p>
+          <ul>
+            <li>
+              <strong>Derecho de secesión:</strong> facultad de un Estado miembro de <strong>retirarse</strong> de la unión
+              y volver a actuar como Estado independiente. Como el vínculo nace de un pacto entre soberanos,
+              en teoría puede disolverse.
+            </li>
+            <li>
+              <strong>Derecho de nulificación:</strong> facultad de un Estado miembro de <strong>declarar nula</strong>
+              (sin efecto en su territorio) una norma o acto del órgano central que considere que excede las competencias
+              delegadas o viola el pacto confederal. Es decir: “esta decisión del centro no vale aquí”.
+            </li>
+          </ul>
+          <div class="ejemplo">
+            <strong>Secesión:</strong> un Estado asociado decide salirse de la confederación y deja de enviar representantes
+            o de aportar a la defensa común. ·
+            <strong>Nulificación:</strong> el órgano central aprueba un impuesto común y un Estado miembro lo rechaza
+            alegando que nunca delegó esa facultad, y se niega a aplicarlo en su territorio.
+            En un <strong>Estado federal</strong> (como Argentina) las provincias <em>no</em> pueden, en principio,
+            “salirse” ni anular por sí mismas una ley nacional válida: prevalece la Constitución y el orden federal.
+          </div>
+          <div class="formula">
+            Confederación → soberanía de los miembros → secesión (irse) + nulificación (anular lo del centro en su territorio)
+          </div>
+          <div class="ejemplo">
+            <strong>Unitario:</strong> Francia o Uruguay (un poder central fuerte; divisiones locales sin soberanía propia). ·
+            <strong>Federal:</strong> Argentina, EE.UU., Brasil (Nación + provincias/estados autónomos). ·
+            <strong>Confederación:</strong> históricamente la Confederación Suiza temprana o uniones de Estados independientes por tratado;
+            hoy es menos frecuente como forma estatal permanente. En clase sirve para contrastar: en la confederación los miembros
+            <em>pueden salirse</em> más fácilmente porque siguen siendo soberanos.
+          </div>
+          <div class="formula">
+            Unitario = poder centralizado · Federal = soberanía compartida/distribuida · Confederación = Estados soberanos asociados
+          </div>
+
+          <h3 id="federalismo">Federalismo (caso argentino)</h3>
+          <p>
+            Distribución del poder según el territorio. Argentina es un <strong>Estado federal</strong>:
+            coexisten gobierno central y gobiernos provinciales.
+            Las provincias conservan el poder no delegado a la Nación (<strong>Art. 121 CN</strong>).
+          </p>
+          <div class="ejemplo">
+            Impacto económico: coparticipación federal e impuestos provinciales como <strong>Ingresos Brutos</strong>. Una app con usuarios en varias provincias puede enfrentar tributación local distinta.
+          </div>
+
+          <h3 id="monarquia-republica">Monarquía vs. República</h3>
+          <p>
+            La <strong>forma de gobierno</strong> responde a cómo se organiza y ejerce el poder político.
+            El contraste clásico entre monarquía y república se resume así:
+          </p>
+          <div class="grid-2">
+            <div class="compare">
+              <h4>Monarquía</h4>
+              <ul>
+                <li><strong>Concentración:</strong> el poder tiende a reunirse en la figura del monarca.</li>
+                <li><strong>Herencia:</strong> el cargo se transmite por sucesión familiar.</li>
+                <li><strong>Vitalicio:</strong> el monarca ocupa el trono de por vida (salvo abdicación/destitución excepcional).</li>
+                <li><strong>Irresponsable:</strong> en el modelo tradicional, el monarca no responde políticamente por sus actos (“el rey no puede obrar mal”).</li>
+                <li><strong>Secreto:</strong> los actos de gobierno suelen carecer de publicidad plena.</li>
+              </ul>
+            </div>
+            <div class="compare">
+              <h4>República</h4>
+              <ul>
+                <li><strong>División de poderes:</strong> Ejecutivo, Legislativo y Judicial (frenos y contrapesos).</li>
+                <li><strong>Elección:</strong> los gobernantes llegan al cargo por elección (directa o indirecta).</li>
+                <li><strong>Periodicidad:</strong> los mandatos tienen plazo; nadie se queda “para siempre”.</li>
+                <li><strong>Responsabilidad:</strong> los funcionarios responden por sus actos (políticos, administrativos, penales, etc.).</li>
+                <li><strong>Publicidad de los actos de gobierno:</strong> las decisiones deben ser conocidas y controlables.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="formula">
+            Monarquía: concentración · herencia · vitalicio · irresponsable · secreto<br />
+            República: división de poderes · elección · periodicidad · responsabilidad · publicidad
+          </div>
+          <div class="ejemplo">
+            Argentina es una <strong>república</strong>: el Presidente se elige y dura un período; el Congreso controla; los jueces controlan constitucionalidad;
+            y los actos oficiales deben publicarse. Eso se opone al esquema monárquico clásico de poder hereditario, vitalicio y poco transparente.
+          </div>
+
+          <h3 id="tipos-democracia">Tres niveles / tipos de democracia</h3>
+          <p>
+            Según <strong>cómo participa el pueblo</strong> en el ejercicio del poder, se distinguen:
+          </p>
+          <ul>
+            <li>
+              <strong>Democracia directa:</strong> el pueblo decide por sí mismo, sin intermediarios.
+              Los ciudadanos deliberan y votan las normas o decisiones (modelo clásico: la asamblea ateniense).
+            </li>
+            <li>
+              <strong>Democracia indirecta o representativa:</strong> el pueblo elige representantes
+              que gobiernan y legislan en su nombre. Es el esquema habitual de los Estados modernos
+              (diputados, senadores, presidente, etc.).
+            </li>
+            <li>
+              <strong>Democracia semidirecta:</strong> combina representación con mecanismos de
+              participación popular directa (consulta, referéndum, iniciativa popular, revocatoria, etc.).
+              El pueblo no gobierna todo el tiempo, pero puede intervenir en decisiones clave.
+            </li>
+          </ul>
+          <div class="ejemplo">
+            <strong>Directa:</strong> una asamblea vecinal que vota una norma local sin delegar. ·
+            <strong>Representativa:</strong> elegís diputados y ellos sancionan leyes (Art. 1 CN: gobierno representativo). ·
+            <strong>Semidirecta:</strong> un referéndum o consulta popular sobre una reforma importante,
+            además del Congreso elegido.
+          </div>
+          <div class="formula">
+            Directa = el pueblo decide · Representativa = elige y delega · Semidirecta = representación + participación puntual
+          </div>
+
+          <h3>Forma de gobierno (Argentina)</h3>
+          <p>La Constitución Nacional adopta un gobierno <strong>representativo, republicano y federal</strong>:</p>
+          <ul>
+            <li><strong>Representativa:</strong> el pueblo gobierna por medio de representantes.</li>
+            <li><strong>Republicana:</strong> división de poderes, periodicidad de mandatos y publicidad de actos.</li>
+            <li><strong>Federal:</strong> descentralización del poder político.</li>
+          </ul>
+
+          <h3>Pesos y contrapesos</h3>
+          <ul>
+            <li><strong>Legislativo:</strong> dicta las leyes (CCyC, presupuesto, leyes de delitos informáticos).</li>
+            <li><strong>Ejecutivo:</strong> administra y ejecuta las leyes.</li>
+            <li><strong>Judicial:</strong> interpreta, resuelve conflictos y ejerce <strong>control de constitucionalidad</strong>.</li>
+          </ul>
+          <div class="ejemplo">
+            El Congreso sanciona la Ley de Delitos Informáticos; el Ejecutivo investiga/persigue vía agencias; el Poder Judicial decide si una conducta es delito y si la norma es constitucional.
+          </div>
+        </section>
+
+        <!-- 4 -->
+        <section id="dos-caras">
+          <h2>4. Informática y Derecho: dos caras</h2>
+          <p>Distinción central de la clase:</p>
+          <div class="grid-2">
+            <div class="compare">
+              <h4>Informática Jurídica</h4>
+              <p>El Derecho toma a la Informática como <strong>herramienta</strong>.</p>
+            </div>
+            <div class="compare">
+              <h4>Derecho Informático</h4>
+              <p>El Derecho toma a la Informática como <strong>objeto de estudio</strong>.</p>
+            </div>
+          </div>
+          <div class="formula">Herramienta = Informática Jurídica · Objeto regulado = Derecho Informático</div>
+          <div class="ejemplo">
+            Usar SAIJ o un software de gestión de expedientes = Informática Jurídica.
+            Regular el phishing, la firma digital o los datos en la nube = Derecho Informático.
+          </div>
+        </section>
+
+        <!-- 5 -->
+        <section id="inf-juridica">
+          <h2>5. Informática Jurídica</h2>
+          <p>
+            La Informática trata la información de modo lógico y sistemático.
+            La <strong>Informática Jurídica</strong> pone esa tecnología al servicio del Derecho para optimizar la labor de jueces, abogados y juristas.
+          </p>
+          <p>Tres clases, según evolución histórica:</p>
+
+          <h3>1) Documental</h3>
+          <p>Archivo y tratamiento electrónico de jurisprudencia, leyes y doctrina.</p>
+          <div class="ejemplo">
+            <strong>SAIJ:</strong> democratiza el acceso al conocimiento jurídico (buscar fallos y normas online en lugar de solo libros físicos).
+          </div>
+
+          <h3>2) Gestión</h3>
+          <ul>
+            <li><strong>Estudio jurídico:</strong> expedientes, agenda, escritos, cédulas, oficios.</li>
+            <li><strong>Actividad judicial:</strong> automatizar rutinas en juzgados.</li>
+            <li><strong>Registral:</strong> notarial; reincidencia, inmueble, automotor; operaciones bancarias/bursátiles.</li>
+            <li><strong>Parlamentaria:</strong> proyectos, comisiones, control del voto.</li>
+            <li><strong>E-government:</strong> Estado–ciudadanos; transparencia y acceso a la información.</li>
+          </ul>
+          <div class="ejemplo">
+            Un juzgado que genera automáticamente un “auto de mero trámite”, o un estudio que trackea vencimientos de plazos procesales, es Informática Jurídica de gestión.
+          </div>
+
+          <h3>3) Decisional</h3>
+          <p>
+            Sistemas expertos que procesan <strong>conocimiento</strong> (no solo datos) y simulan el razonamiento de un experto.
+            Componentes: base de conocimiento + sistema cognitivo + interfaz.
+          </p>
+          <div class="ejemplo">
+            Cálculo de indemnizaciones tarifadas o liquidaciones previsionales. <strong>Límite:</strong> no reemplaza la equidad del juez en casos sensibles (adopción, tenencia o guarda de un menor).
+          </div>
+        </section>
+
+        <!-- 6 -->
+        <section id="der-informatico">
+          <h2>6. Derecho Informático: concepto y objeto</h2>
+          <p>
+            <strong>Derecho Informático:</strong> conjunto de principios y normas que regulan los efectos jurídicos
+            nacidos de la interrelación entre Derecho e Informática.
+          </p>
+          <ul>
+            <li><strong>Origen del término:</strong> Wilhelm Steinmüller (1970), <em>Rechtsinformatik</em>.</li>
+            <li><strong>Nace para:</strong> regular consecuencias de la computadora en el procesamiento de datos (software y bases de datos).</li>
+          </ul>
+          <p>Con Internet surge la Sociedad de la Información y del Conocimiento; en el siglo XXI abarca las nuevas tecnologías en todos sus aspectos.</p>
+
+          <h3>Objeto</h3>
+          <ol>
+            <li>Conocer el impacto de las <strong>TICs</strong> en la sociedad y el orden jurídico.</li>
+            <li>Detectar nuevos problemas e interrogantes sociales.</li>
+            <li>Elaborar respuestas (normas y principios) adecuadas al tiempo actual.</li>
+          </ol>
+
+          <h3>Sociedad de la Información e Internet</h3>
+          <ul>
+            <li><strong>Sociedad de la Información:</strong> TICs en lo social, económico y cultural; caen barreras de espacio y tiempo.</li>
+            <li><strong>Sociedad del Conocimiento:</strong> apropiación crítica y selectiva de esa información.</li>
+            <li><strong>Web 1.0:</strong> páginas estáticas (solo lectura).</li>
+            <li><strong>Web 2.0:</strong> intercambio (blogs, wikis, redes).</li>
+            <li><strong>Web 3.0:</strong> accesibilidad multi-dispositivo.</li>
+          </ul>
+          <div class="ejemplo">
+            Pedir comida por app desde otro país o firmar un contrato por mail ilustra la eliminación de barreras espaciales/temporales de la Sociedad de la Información.
+          </div>
+
+          <h3>Brecha digital y neutralidad</h3>
+          <p>
+            <strong>Doble brecha digital</strong> (Cumbre de Ginebra 2003): el acceso a TICs está desigualmente distribuido entre países y dentro de la sociedad.
+            Políticas locales: <strong>Argentina Digital</strong> y <strong>Argentina Conectada</strong>.
+          </p>
+          <p>
+            <strong>Neutralidad en Internet:</strong> tratar igual a los datos; libre acceso a contenidos, aplicaciones y dispositivos no dañinos.
+          </p>
+          <div class="ejemplo">
+            Si un ISP ralentiza Netflix para privilegiar su propio streaming, viola la idea de neutralidad: no todos los datos reciben el mismo trato.
+          </div>
+        </section>
+
+        <!-- 7 -->
+        <section id="consecuencias">
+          <h2>7. Nuevas consecuencias jurídicas</h2>
+          <p>El avance tecnológico genera problemas nuevos o reconfigurados:</p>
+          <ul>
+            <li><strong>Delitos informáticos:</strong> hacking, phishing, pharming, grooming, sexting, virus maker.</li>
+            <li><strong>Software y autor:</strong> protección del software; mash-up, p2p, downloading, BitTorrent, streaming.</li>
+            <li><strong>Documento y firma:</strong> valor probatorio del documento electrónico; eficacia de firma digital/electrónica.</li>
+            <li><strong>Redes y marketing:</strong> acoso en apps; cookies, spam y marketing de comportamiento.</li>
+            <li><strong>Contratos y comercio:</strong> click-wrap, e-commerce; ciberocupación de dominios.</li>
+            <li><strong>Datos y trabajo:</strong> cloud; identidad digital, derecho al olvido, oversharing; teletrabajo, monitoreo, cyberslacking.</li>
+            <li><strong>Responsabilidades:</strong> ISPs y buscadores (ej.: Google).</li>
+          </ul>
+          <div class="formula">
+            Problema estructural: el ciberespacio borra fronteras → ¿ley aplicable? ¿juez competente? Caso de referencia: <strong>Yahoo</strong>.
+          </div>
+          <div class="ejemplo">
+            Un phishing armado en el exterior contra usuarios argentinos: ¿se aplica ley argentina, la del servidor o la del autor? Esa tensión de jurisdicción es típica del ciberespacio.
+          </div>
+        </section>
+
+        <!-- 8 -->
+        <section id="propio-impropio">
+          <h2>8. Clases: propio e impropio</h2>
+          <div class="grid-2">
+            <div class="compare">
+              <h4>Propio</h4>
+              <p>Elementos únicos. Necesita el <strong>elemento tecnológico</strong> para configurar el hecho. Ej.: hacking, virus maker.</p>
+            </div>
+            <div class="compare">
+              <h4>Impropio</h4>
+              <p>Tiene contacto con otras ramas; se aplican normas de éstas. Ej.: spam (antes, publicidad no solicitada por correo postal).</p>
+            </div>
+          </div>
+          <div class="ejemplo">
+            Pregunta útil en un parcial: ¿sin computadora/red existiría el hecho típico? Si la respuesta es “no” → suele ser <strong>propio</strong>. Si el hecho ya existía en otra forma → <strong>impropio</strong>.
+          </div>
+        </section>
+
+        <!-- 9 -->
+        <section id="autonomia">
+          <h2>9. Autonomía del Derecho Informático</h2>
+          <p>Tiene autonomía jurídica porque reúne autonomía <strong>normativa</strong>, <strong>jurisprudencial</strong>, <strong>científica</strong> y <strong>académica</strong>.</p>
+
+          <h3>Autonomía normativa — leyes clave</h3>
+          <div class="laws">
+            <div class="law"><code>Ley 24.766</code><span>Confidencialidad</span></div>
+            <div class="law"><code>Ley 25.036</code><span>Software</span></div>
+            <div class="law"><code>Ley 25.506</code><span>Firma Digital</span></div>
+            <div class="law"><code>Ley 25.326</code><span>Datos Personales</span></div>
+            <div class="law"><code>Ley 26.032</code><span>Libertad de expresión en Internet</span></div>
+            <div class="law"><code>Ley 26.388</code><span>Delitos Informáticos</span></div>
+            <div class="law"><code>Ley 26.685</code><span>Expediente Electrónico</span></div>
+            <div class="law"><code>Ley 26.904</code><span>Grooming</span></div>
+          </div>
+
+          <h3>Jurisprudencial, científica y académica</h3>
+          <ul>
+            <li><strong>Jurisprudencial:</strong> fallos en software, bases de datos, autor en Internet, dominios, datos personales, mail, intimidad, contratos (ej.: Taringa, Freddo, Belén Rodríguez, Claps c/ Mercado Libre).</li>
+            <li><strong>Científica:</strong> adaptar Penal, Civil, Comercial, Internacional, Administrativo, Laboral, Procesal y Propiedad Intelectual a las TICs.</li>
+            <li><strong>Académica:</strong> ADIA / AAIJ, congresos y cátedras (UADE, UCA, UBA).</li>
+          </ul>
+        </section>
+
+        <!-- 10 -->
+        <section id="principios">
+          <h2>10. Principios propios del Derecho Informático</h2>
+          <ul>
+            <li><strong>Neutralidad tecnológica:</strong> la ley fija objetivos sin imponer una tecnología concreta.</li>
+            <li><strong>Expansión del Derecho Penal:</strong> más delitos de peligro abstracto, tipos abiertos, culposos y bienes pluriofensivos.</li>
+            <li><strong>Dinamismo:</strong> adaptación continua; colaboración entre juristas, legisladores y jueces.</li>
+            <li><strong>Equivalencia funcional:</strong> traslada funciones del papel (escritura, firma, original) al electrónico.</li>
+            <li><strong>Autorregulación de Internet:</strong> usuarios eligen contenidos y reglas.</li>
+            <li><strong>Autodeterminación informativa:</strong> la persona controla qué datos personales revela.</li>
+            <li><strong>Puerto seguro:</strong> el sitio se protege si, ante notice &amp; takedown, retira el contenido infractor de ©.</li>
+            <li><strong>Exclusividad fáctica:</strong> un dominio es único (ligado a una IP).</li>
+            <li><strong>Option out:</strong> presume consentimiento (cookies/spam) salvo oposición.</li>
+            <li><strong>Option in:</strong> exige consentimiento previo, expreso y voluntario (más protector de la intimidad).</li>
+            <li><strong>Transnacionalidad:</strong> conducta en un país, resultado en otro. Respuestas: <strong>uniformidad</strong> y <strong>unificación</strong>.</li>
+          </ul>
+          <div class="ejemplo">
+            <strong>Equivalencia funcional:</strong> un PDF firmado digitalmente puede cumplir la función de “firma” del documento papel.
+            <strong>Option in:</strong> un e-commerce que pide “acepto recibir mails” antes de suscribirte, en lugar de anotarte solo y dejarte cancelar después (option out).
+          </div>
+        </section>
+
+        <!-- 11 -->
+        <section id="ideas">
+          <h2>11. Ideas clave para recordar</h2>
+          <ul class="key-list">
+            <li>El <strong>Estado</strong> se compone de población, territorio, gobierno, derecho y poder.</li>
+            <li>Formas de Estado: <strong>unitario</strong>, <strong>federal</strong>, <strong>confederación</strong> (con derechos de <strong>secesión</strong> y <strong>nulificación</strong>).</li>
+            <li>República vs. monarquía: división/elección/periodicidad/responsabilidad/publicidad frente a concentración/herencia/vitalicio/irresponsable/secreto.</li>
+            <li>Democracia: <strong>directa</strong>, <strong>indirecta/representativa</strong> y <strong>semidirecta</strong>.</li>
+            <li>Informática Jurídica = <strong>herramienta</strong>; Derecho Informático = <strong>objeto</strong> de regulación.</li>
+            <li>El Derecho se distingue de la moral por ser externo, bilateral y <strong>coactivo</strong>.</li>
+            <li>Fuentes: ley, jurisprudencia, doctrina, costumbres + principios (<em>non bis in idem</em>, <em>sine lege</em>, <em>pacta sunt servanda</em>, <em>bona fide</em>).</li>
+            <li>Informática Jurídica: documental → gestión → decisional (límite de equidad).</li>
+            <li>El ciberespacio tensiona ley aplicable y jurisdicción (caso Yahoo).</li>
+            <li>Propio vs. impropio: ¿hace falta el elemento tecnológico para configurar el hecho?</li>
+            <li>Leyes para memorizar: <strong>25.326</strong> (datos), <strong>25.506</strong> (firma), <strong>26.388</strong> (delitos), <strong>26.904</strong> (grooming).</li>
+            <li>Principios estrella: equivalencia funcional, autodeterminación informativa, option in/out, neutralidad tecnológica, puerto seguro.</li>
+          </ul>
+        </section>
+
+        <footer>
+          Resumen elaborado a partir de la presentación “Clase 1 Presentación – Informática y Derecho” (UADE).
+          Para estudiar offline, abrí este archivo en el navegador.
+        </footer>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const sidebar = document.getElementById("sidebar");
+    const menuBtn = document.getElementById("menuBtn");
+    const backdrop = document.getElementById("backdrop");
+
+    function closeMenu() {
+      sidebar.classList.remove("open");
+      backdrop.classList.remove("show");
+      backdrop.hidden = true;
+      menuBtn.setAttribute("aria-expanded", "false");
+    }
+    function openMenu() {
+      sidebar.classList.add("open");
+      backdrop.hidden = false;
+      backdrop.classList.add("show");
+      menuBtn.setAttribute("aria-expanded", "true");
+    }
+    menuBtn.addEventListener("click", () => {
+      sidebar.classList.contains("open") ? closeMenu() : openMenu();
+    });
+    backdrop.addEventListener("click", closeMenu);
+    sidebar.querySelectorAll("a").forEach((a) => a.addEventListener("click", closeMenu));
+
+    // Acordeón del índice
+    function setGroupOpen(group, open) {
+      group.classList.toggle("open", open);
+      const btn = group.querySelector(".acc-btn");
+      if (btn) {
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
+        btn.setAttribute("aria-label", open ? "Cerrar subtemas" : "Abrir subtemas");
+      }
+    }
+
+    document.querySelectorAll(".toc-group").forEach((group) => {
+      const btn = group.querySelector(".acc-btn");
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const willOpen = !group.classList.contains("open");
+        // un acordeón abierto a la vez
+        document.querySelectorAll(".toc-group.open").forEach((g) => {
+          if (g !== group) setGroupOpen(g, false);
+        });
+        setGroupOpen(group, willOpen);
+      });
+    });
+
+    const links = [...document.querySelectorAll(".toc a")];
+    const sections = links
+      .map((a) => document.querySelector(a.getAttribute("href")))
+      .filter(Boolean);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const id = "#" + entry.target.id;
+          links.forEach((l) => l.classList.toggle("active", l.getAttribute("href") === id));
+          const activeLink = links.find((l) => l.getAttribute("href") === id);
+          const group = activeLink && activeLink.closest(".toc-group");
+          if (group) {
+            document.querySelectorAll(".toc-group.open").forEach((g) => {
+              if (g !== group) setGroupOpen(g, false);
+            });
+            setGroupOpen(group, true);
+          }
+        });
+      },
+      { rootMargin: "-20% 0px -65% 0px", threshold: 0.01 }
+    );
+    sections.forEach((s) => observer.observe(s));
+  </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+# Este repositorio publica solo los resúmenes web.
+*
+!/.gitignore
+!/README.md
+!/index.html
+!/assets/
+!/assets/**
+!/Derecho Informático/
+!/Derecho Informático/Resumen_Clase_1_Derecho_Informatico.html
+!/Tendencias Tecnológicas/
+!/Tendencias Tecnológicas/Resumen_Tendencias_Tecnologicas.html
+!/Tecnología e Innovación/
+!/Tecnología e Innovación/Resumen_Tecnologia_e_Innovacion.html

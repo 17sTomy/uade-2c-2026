@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Guía de estudio de Tendencias Tecnológicas — UADE 2026.">
+  <title>Tendencias Tecnológicas — Guía de estudio | UADE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/study.css">
+</head>
+<body class="theme-trends">
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+  <div class="progress" aria-hidden="true"><span></span></div>
+  <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="sidebar">Índice</button>
+  <div class="backdrop" id="backdrop"></div>
+  <div class="shell">
+    <aside class="sidebar" id="sidebar" aria-label="Índice del resumen">
+      <a class="home-link" href="../index.html">← Volver a materias</a>
+      <p class="brand">Tendencias Tecnológicas</p>
+      <p class="brand-sub">Guía de estudio · Unidades I–V</p>
+      <p class="toc-label">Contenido</p>
+      <nav><ul class="toc">
+        <li><a href="#tic">I · TIC</a></li>
+        <li class="sub"><a href="#caracteristicas">Características</a></li>
+        <li class="sub"><a href="#movil">Adopción y telefonía</a></li>
+        <li><a href="#ntit">II · NTIT y redes</a></li>
+        <li><a href="#ntic">III · Nuevas TIC</a></li>
+        <li><a href="#bi">IV · Business Intelligence</a></li>
+        <li class="sub"><a href="#olap">ETL, OLAP y modelos</a></li>
+        <li><a href="#cloud">V · Cloud Computing</a></li>
+        <li><a href="#casos">Casos prácticos</a></li>
+        <li><a href="#repaso">Repaso rápido</a></li>
+      </ul></nav>
+    </aside>
+    <main id="contenido"><div class="content">
+      <header class="hero">
+        <span class="eyebrow">UADE · Material de estudio 2026</span>
+        <h1>Tendencias Tecnológicas</h1>
+        <p>Conceptos, comparaciones y trampas frecuentes para razonar TIC, redes, Business Intelligence y Cloud Computing.</p>
+        <div class="meta"><span class="chip">Prof. Mg. Moisés Evaristo Bueno</span><span class="chip">5 unidades</span><span class="chip">Guía para parcial</span></div>
+      </header>
+
+      <section id="tic">
+        <div class="section-head"><span class="section-no">I</span><h2>Tecnologías de Información y Comunicación</h2></div>
+        <p class="lead">Las TIC son recursos, herramientas y programas que procesan, administran y comparten información mediante soportes tecnológicos. Son transversales y siempre combinan tres componentes.</p>
+        <div class="cards three">
+          <article class="card"><span class="tag">Hardware</span><p>Parte física: celular, servidor, router, sensor o cámara.</p></article>
+          <article class="card"><span class="tag">Software</span><p>Programas y sistemas: Android, Word, navegador o sistema hospitalario.</p></article>
+          <article class="card"><span class="tag">Redes</span><p>Conectividad: fibra, Wi‑Fi, Ethernet, 5G o satélite.</p></article>
+        </div>
+        <div class="formula">TIC = hardware + software + redes</div>
+        <p>Una transferencia bancaria móvil usa el teléfono y servidores (hardware), la app y sistemas del banco (software), y datos móviles, internet y red interbancaria (redes).</p>
+
+        <h3 id="caracteristicas">Seis características</h3>
+        <div class="matrix">
+          <div><strong>Inmaterialidad</strong><small>La información digital son bits: se copia sin desgaste y no depende de un soporte físico único.</small></div>
+          <div><strong>Interactividad</strong><small>La comunicación es bidireccional; el receptor también genera y distribuye.</small></div>
+          <div><strong>Instantaneidad</strong><small>Los datos viajan en milisegundos, aunque red, ancho de banda o fallas pueden limitarla.</small></div>
+          <div><strong>Interconexión</strong><small>Sistemas combinados crean capacidades nuevas: GPS + datos + usuarios = navegación dinámica.</small></div>
+          <div><strong>Digitalización</strong><small>Convierte voz, texto o imágenes analógicas a bits procesables.</small></div>
+          <div><strong>Automatización</strong><small>Algoritmos ejecutan tareas repetitivas sin intervención humana continua.</small></div>
+        </div>
+        <p>Beneficios: acceso al conocimiento, productividad, comunicación global, educación y nuevas formas de trabajo. Riesgos: brecha digital, privacidad/ciberseguridad, desinformación y dependencia.</p>
+
+        <h3 id="movil">Adopción y evolución móvil</h3>
+        <p>La adopción se acelera porque cada tecnología aprovecha infraestructura previa. Pokémon Go pudo combinar smartphones, internet, GPS y tiendas de apps; no debió construir esa base.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Generación</th><th>Innovación clave</th><th>Cambio</th></tr></thead>
+          <tbody>
+            <tr><td>1G</td><td>Voz analógica</td><td>El teléfono se separa del cable.</td></tr>
+            <tr><td>2G</td><td>Voz digital y SMS</td><td>Comunicación escrita móvil asíncrona.</td></tr>
+            <tr><td>3G</td><td>Datos e internet móvil</td><td>Web, email y redes desde el bolsillo.</td></tr>
+            <tr><td>4G</td><td>Alta velocidad</td><td>Streaming fluido y video HD.</td></tr>
+            <tr><td>5G</td><td>Baja latencia y densidad</td><td>IoT masivo y servicios en tiempo real.</td></tr>
+            <tr><td>6G</td><td>Proyección en desarrollo</td><td>IA integrada y unión físico-digital; no es una capacidad consolidada.</td></tr>
+          </tbody>
+        </table></div>
+      </section>
+
+      <section id="ntit">
+        <div class="section-head"><span class="section-no">II</span><h2>NTIT, redes y convergencia</h2></div>
+        <p>Las NTIT integran herramientas avanzadas de informática, internet y telecomunicaciones en tres ejes: <strong>redes, terminales y servicios</strong>. La diferencia con TIC es histórica: lo nuevo se normaliza y deja de percibirse como “nuevo”.</p>
+        <div class="callout"><span class="callout-title">Idea central</span>“Lo que hoy se llama TIC, ayer se llamaba NTIC”. NTIT/NTIC no es una categoría eterna: depende del momento y del enfoque.</div>
+        <h3>Redes por alcance</h3>
+        <div class="cards three">
+          <article class="card"><span class="tag">LAN</span><p>Hogar, aula, oficina o edificio.</p></article>
+          <article class="card"><span class="tag">MAN</span><p>Campus o ciudad; alcance intermedio.</p></article>
+          <article class="card"><span class="tag">WAN</span><p>País, continente o planeta. Internet es la mayor WAN.</p></article>
+        </div>
+        <p>Los medios <strong>guiados</strong> usan soporte físico (par trenzado, coaxial y fibra óptica); los <strong>no guiados</strong> usan ondas por el aire (Wi‑Fi, Bluetooth, infrarrojo, microondas, 5G). La fibra transmite luz, pero dentro de un cable: es guiada.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Topología</th><th>Estructura</th><th>Punto débil</th></tr></thead>
+          <tbody><tr><td>Bus</td><td>Un cable central compartido.</td><td>Si falla, cae toda la red.</td></tr><tr><td>Estrella</td><td>Cada equipo conecta a un switch central.</td><td>El nodo central es crítico.</td></tr><tr><td>Anillo</td><td>Equipos conectados en círculo.</td><td>Una falla puede interrumpir el recorrido.</td></tr></tbody>
+        </table></div>
+        <p>La <strong>convergencia</strong> integra funciones antes separadas en una plataforma. El smartphone reemplaza cámara, GPS, radio, agenda y reproductor, y agrega banca móvil, pagos y biometría.</p>
+      </section>
+
+      <section id="ntic">
+        <div class="section-head"><span class="section-no">III</span><h2>Nuevas TIC y colaboración</h2></div>
+        <p>En el enfoque de la guía, TIC se asocia a globalización de la información y NTIC al uso educativo, la enseñanza y la colaboración. Sus pilares son inmaterialidad, instantaneidad e interactividad.</p>
+        <div class="cards">
+          <article class="card"><span class="tag">Web 1.0</span><h4>Lectura</h4><p>Contenido estático, publicado por el dueño del sitio; usuario espectador.</p></article>
+          <article class="card"><span class="tag">Web 2.0</span><h4>Lectura + escritura</h4><p>Contenido dinámico generado por usuarios: publican, comentan, votan, comparten y editan.</p></article>
+        </div>
+        <div class="callout tip"><span class="callout-title">Trampa clásica</span>Wikipedia es Web 2.0. No importa que funcione como enciclopedia: lo decisivo es que los usuarios pueden editarla.</div>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Comunicación</th><th>Condición</th><th>Ejemplos</th></tr></thead>
+          <tbody><tr><td><strong>Sincrónica</strong></td><td>Las partes coinciden en el tiempo.</td><td>Videollamada, llamada, chat en vivo.</td></tr><tr><td><strong>Asincrónica</strong></td><td>Cada parte participa cuando puede.</td><td>Email, foro, mensaje grabado, video.</td></tr></tbody>
+        </table></div>
+        <p>La sincronía depende de la coincidencia temporal, no de la velocidad. Un email llega rápido, pero sigue siendo asíncrono.</p>
+      </section>
+
+      <section id="bi">
+        <div class="section-head"><span class="section-no">IV</span><h2>Business Intelligence</h2></div>
+        <p class="lead">BI transforma datos brutos en información estratégica para apoyar decisiones. No es solo tecnología: combina <strong>datos, personas, procesos y herramientas</strong>.</p>
+        <div class="flow"><div class="flow-step">Recopilar</div><div class="flow-step">ETL y analizar</div><div class="flow-step">Informar y decidir</div></div>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Tipo</th><th>Pregunta</th><th>Orientación</th></tr></thead>
+          <tbody>
+            <tr><td>Descriptivo</td><td>¿Qué está pasando?</td><td>Presente y pasado reciente.</td></tr>
+            <tr><td>Diagnóstico</td><td>¿Por qué pasó?</td><td>Causas.</td></tr>
+            <tr><td>Predictivo</td><td>¿Qué va a pasar?</td><td>Pronóstico futuro.</td></tr>
+            <tr><td>Prescriptivo</td><td>¿Qué debería hacer?</td><td>Acción recomendada.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h3 id="olap">ETL, OLAP, forecasting y minería</h3>
+        <p><strong>ETL</strong> extrae datos de distintas fuentes, los transforma —limpia, unifica formatos y elimina duplicados— y los carga en un repositorio preparado para análisis.</p>
+        <p>Un <strong>cubo OLAP</strong> permite análisis multidimensional. Drill-down baja al detalle; drill-up resume; slice fija un valor; dice combina varios filtros. MOLAP prioriza velocidad con cubos precalculados; ROLAP, flexibilidad sobre bases relacionales; HOLAP mezcla ambos.</p>
+        <div class="cards">
+          <article class="card"><span class="tag">Data Mining</span><p>Descubre patrones ocultos en datos históricos: qué pasó, por qué y qué relaciones existen.</p></article>
+          <article class="card"><span class="tag">Modelado predictivo</span><p>Construye modelos para estimar comportamientos futuros a partir de patrones.</p></article>
+        </div>
+        <div class="formula">Data Mining descubre el patrón → el modelo predictivo lo convierte en una predicción</div>
+        <p>El <strong>forecasting</strong> también estima el futuro, pero como proceso estructurado con datos históricos/presentes, variables relevantes y técnicas estadísticas o de machine learning; no es una suposición informal.</p>
+      </section>
+
+      <section id="cloud">
+        <div class="section-head"><span class="section-no">V</span><h2>Cloud Computing</h2></div>
+        <p>Es la provisión de servicios de TI bajo demanda por internet y con pago por uso. Desplaza inversión inicial en infraestructura (CAPEX) hacia gasto operativo variable (OPEX), acelera el aprovisionamiento y reduce capacidad ociosa.</p>
+        <div class="cards three">
+          <article class="card"><span class="tag">Pública</span><p>Infraestructura compartida y aislada virtualmente. Menor costo y gran escala; menor control directo.</p></article>
+          <article class="card"><span class="tag">Privada</span><p>Dedicada a una organización. Más control y privacidad; mayor costo y gestión.</p></article>
+          <article class="card"><span class="tag">Híbrida</span><p>Integra pública y privada: flexibilidad con mayor complejidad técnica.</p></article>
+        </div>
+        <h3>Modelos de servicio y responsabilidad</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Modelo</th><th>Proveedor gestiona</th><th>Usuario gestiona</th><th>Ejemplo</th></tr></thead>
+          <tbody>
+            <tr><td><strong>IaaS</strong></td><td>Hardware y virtualización.</td><td>SO, middleware, aplicación y datos.</td><td>EC2, Azure VM.</td></tr>
+            <tr><td><strong>PaaS</strong></td><td>Infraestructura, SO y plataforma.</td><td>Aplicación y datos.</td><td>App Engine, Heroku.</td></tr>
+            <tr><td><strong>SaaS</strong></td><td>La solución completa.</td><td>Uso y sus datos.</td><td>Gmail, Microsoft 365.</td></tr>
+          </tbody>
+        </table></div>
+        <p>Beneficios centrales: elasticidad, pago por uso, alta disponibilidad, actualizaciones automáticas y seguridad especializada. Más servicio administrado implica menos carga para el usuario, pero también menos control.</p>
+        <div class="callout tip"><span class="callout-title">Criterio de la cátedra</span>La guía ubica a Microsoft primero en su ranking por integrar IaaS, PaaS y SaaS. Es el ranking específico del material, no una regla universal de participación de mercado.</div>
+      </section>
+
+      <section id="casos">
+        <div class="section-head"><span class="section-no">C</span><h2>Cómo resolver casos prácticos</h2></div>
+        <ol>
+          <li><strong>Identificar la tecnología:</strong> usar el nombre técnico, no una descripción vaga.</li>
+          <li><strong>Explicar el funcionamiento:</strong> componentes y flujo de datos o acciones.</li>
+          <li><strong>Vincular conceptos:</strong> unidad, característica, tipo de red, BI o cloud.</li>
+          <li><strong>Evaluar impacto:</strong> beneficios, límites, riesgos y justificación aplicada al caso.</li>
+        </ol>
+        <div class="callout"><span class="callout-title">Patrón de respuesta</span>“La tecnología es… Funciona mediante… Se relaciona con [concepto] porque… En este caso aporta… y presenta el riesgo/límite…”</div>
+      </section>
+
+      <section id="repaso">
+        <div class="section-head"><span class="section-no">✓</span><h2>Repaso rápido</h2></div>
+        <div class="quiz">
+          <details><summary>¿Cuántos componentes tienen las TIC?</summary><p>Tres: hardware, software y redes.</p></details>
+          <details><summary>¿La instantaneidad está garantizada siempre?</summary><p>No. Puede verse afectada por calidad de red, ancho de banda o fallas.</p></details>
+          <details><summary>¿La fibra óptica es un medio no guiado?</summary><p>No. La luz viaja por un cable que guía la señal.</p></details>
+          <details><summary>¿El email es sincrónico porque llega rápido?</summary><p>No. Es asíncrono porque las partes no deben coincidir en el tiempo.</p></details>
+          <details><summary>¿El BI descriptivo predice?</summary><p>No. Describe presente/pasado; el predictivo anticipa y el prescriptivo recomienda.</p></details>
+          <details><summary>¿Gmail es IaaS?</summary><p>No. Es SaaS: una aplicación completa administrada por el proveedor.</p></details>
+        </div>
+      </section>
+      <footer>Resumen basado en “TendenciasTecnologicas-GuiaEstudio.pdf”. El material de esta materia se mantiene separado del resumen de Tecnología e Innovación.</footer>
+    </div></main>
+  </div>
+  <script src="../assets/study.js"></script>
+</body>
+</html>
