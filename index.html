@@ -42,6 +42,10 @@
     .open { display:flex; justify-content:space-between; align-items:center; margin-top:auto; padding-top:26px; color:var(--accent); font-size:.82rem; font-weight:800; }
     .arrow { display:grid; place-items:center; width:34px; height:34px; border-radius:50%; background:var(--soft); font-size:1rem; transition:transform .25s ease; }
     .subject:hover .arrow { transform:translateX(4px); }
+    .subject.pending { cursor:default; }
+    .subject.pending:hover { transform:none; border-color:var(--line); box-shadow:0 24px 70px rgba(29,42,51,.09); }
+    .subject.pending:hover::before { transform:none; }
+    .pending-label { display:inline-flex; align-self:flex-start; margin-top:auto; padding:7px 11px; border-radius:999px; color:var(--accent); background:var(--soft); font-size:.72rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; }
     footer { display:flex; justify-content:space-between; gap:20px; margin-top:36px; padding-top:18px; border-top:1px solid var(--line); color:var(--muted); font-size:.78rem; }
     @media(max-width:850px){ header{grid-template-columns:1fr}.intro{max-width:620px}.grid{grid-template-columns:1fr}.subject{min-height:320px}.icon{margin-top:45px} }
     @media(max-width:520px){ .wrap{padding-top:50px}.subject{padding:23px;border-radius:22px}footer{display:block} }
@@ -54,11 +58,11 @@
       <p class="intro">Tres materias, una navegación consistente y contenido preparado para repasar conceptos, ejemplos y relaciones clave.</p>
     </header>
     <section class="grid" aria-label="Materias disponibles">
-      <a class="subject" href="Tendencias%20Tecnológicas/Resumen_Tendencias_Tecnologicas.html">
+      <article class="subject pending">
         <span class="number">01 · LUNES</span><span class="icon" aria-hidden="true">⌁</span>
-        <h2>Tendencias Tecnológicas</h2><p>TIC, redes, NTIC, Business Intelligence, análisis multidimensional y Cloud Computing.</p>
-        <span class="open" aria-label="Abrir Tendencias Tecnológicas"><span></span><span class="arrow">→</span></span>
-      </a>
+        <h2>Negocios Tecnológicos</h2><p>Todavía no hay material cargado para preparar el resumen de esta materia.</p>
+        <span class="pending-label">Próximamente</span>
+      </article>
       <a class="subject law" href="Derecho%20Informático/Resumen_Clase_1_Derecho_Informatico.html">
         <span class="number">02 · MIÉRCOLES</span><span class="icon" aria-hidden="true">§</span>
         <h2>Derecho Informático</h2><p>Derecho, Estado, informática jurídica, regulación tecnológica, autonomía y principios.</p>

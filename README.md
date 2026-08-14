@@ -2,7 +2,7 @@
 
 Sitio estático con resúmenes de estudio de UADE:
 
-- Tendencias Tecnológicas
+- Negocios Tecnológicos (pendiente de material)
 - Derecho Informático
 - Tecnología e Innovación
 
