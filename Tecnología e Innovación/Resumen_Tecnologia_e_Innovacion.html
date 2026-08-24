@@ -20,7 +20,7 @@
     <aside class="sidebar" id="sidebar" aria-label="Índice del resumen">
       <a class="home-link" href="../index.html">← Volver a materias</a>
       <p class="brand">Tecnología e Innovación</p>
-      <p class="brand-sub">Resumen integral · Clases 1 y 2 · TPO</p>
+      <p class="brand-sub">Resumen integral · Clases 1 a 3 · TPO</p>
       <p class="toc-label">Recorrido</p>
       <nav>
         <ul class="toc">
@@ -38,6 +38,13 @@
           <li class="sub"><a href="#vuca-bani">VUCA y BANI</a></li>
           <li class="sub"><a href="#adopcion">Adopción y curvas S</a></li>
           <li><a href="#tp-clase">TP de Clase 2</a></li>
+          <li><a href="#clase-3">Clase 3 · Hipótesis y evidencia</a></li>
+          <li class="sub"><a href="#hipotesis">Hipótesis verificable</a></li>
+          <li class="sub"><a href="#calidad">Calidad y atributos</a></li>
+          <li class="sub"><a href="#proceso-calidad">Proceso y gestión de calidad</a></li>
+          <li class="sub"><a href="#evidencia">Datos y evidencia</a></li>
+          <li class="sub"><a href="#tecnologias-datos">BI, Data Mining, IA y Big Data</a></li>
+          <li><a href="#tp-clase-3">TP de Clase 3</a></li>
           <li><a href="#tpo">TPO integrador</a></li>
           <li><a href="#repaso">Repaso activo</a></li>
         </ul>
@@ -49,10 +56,11 @@
         <header class="hero">
           <span class="eyebrow">UADE · Resumen de estudio 2026</span>
           <h1>Tecnología e Innovación</h1>
-          <p>Una guía por clases para pasar de una idea a una solución que crea valor, distinguir impacto real de simple novedad y decidir cómo actuar en contextos inciertos.</p>
+          <p>Una guía por clases para pasar de una idea a una solución que crea valor, distinguir impacto real de simple novedad y demostrar resultados mediante calidad, procesos y evidencia.</p>
           <div class="meta">
             <span class="chip">Clase 1 · Gestión de la innovación</span>
             <span class="chip">Clase 2 · Disrupción y contexto</span>
+            <span class="chip">Clase 3 · Calidad y evidencia</span>
             <span class="chip">TPO · Plan de negocios</span>
           </div>
         </header>
@@ -269,6 +277,118 @@
           <div class="callout"><span class="callout-title">Estructura de una respuesta fuerte</span>“La tecnología habilitadora es X; la innovación implementada es Y; crea valor para Z. Su madurez es… La clasificamos como disruptiva/no disruptiva porque hay/no hay evidencia en acceso, economía y desplazamiento. En el contexto aparece [VUCA/BANI]; el riesgo principal es… y lo validaríamos midiendo…”</div>
         </section>
 
+        <section id="clase-3">
+          <div class="section-head"><span class="section-no">03</span><h2>Clase 3 · De la hipótesis de innovación a la evidencia</h2></div>
+          <p class="lead">Las clases anteriores construyeron una promesa: una tecnología podría resolver un problema y producir un efecto disruptivo. La Clase 3 convierte esa promesa en una afirmación que puede confirmarse, ajustarse o refutarse.</p>
+
+          <h3 id="hipotesis">Problema, solución, hipótesis, evidencia y decisión</h3>
+          <div class="flow">
+            <div class="flow-step">Problema<br><small>qué mejorar</small></div>
+            <div class="flow-step">Oportunidad<br><small>dónde crear valor</small></div>
+            <div class="flow-step">Solución candidata<br><small>cambio propuesto</small></div>
+            <div class="flow-step">Hipótesis<br><small>mejora y mecanismo</small></div>
+            <div class="flow-step">Evidencia<br><small>datos pertinentes</small></div>
+            <div class="flow-step">Decisión<br><small>avanzar, ajustar o detener</small></div>
+          </div>
+          <p>Una <strong>hipótesis de innovación</strong> es una afirmación provisoria sobre cómo una solución produciría una mejora concreta para usuarios u organización. Debe poder ser falsa: si ningún resultado obliga a revisarla, no es verificable.</p>
+          <div class="formula">Creemos que [solución] permitirá [mejora] para [usuarios u organización], porque [mecanismo]. Lo comprobaremos si [indicador] alcanza [resultado o umbral].</div>
+          <div class="callout warning"><span class="callout-title">Potencial no es valor demostrado</span>Una tecnología puede ser novedosa, madura o potencialmente disruptiva y aun así resolver mal el problema, no ser adoptada o producir resultados deficientes. La evidencia debe mostrar el cambio, no solo la tecnología incorporada.</div>
+
+          <h3 id="calidad">Calidad: convertir la promesa en criterio de éxito</h3>
+          <p>Una solución es un sistema compuesto por software, procesos, datos, infraestructura, personas y reglas de negocio. La calidad es su capacidad de satisfacer necesidades de usuarios, negocio y otros actores. La <strong>brecha</strong> es la diferencia observable entre la promesa y el resultado actual.</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Atributo ISO/IEC 25010</th><th>Pregunta</th><th>Señales posibles</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Adecuación funcional</strong></td><td>¿Permite alcanzar el objetivo?</td><td>Finalización, funciones correctas, resultado obtenido.</td></tr>
+                <tr><td><strong>Usabilidad</strong></td><td>¿Con cuánto esfuerzo?</td><td>Pasos, errores, abandono, necesidad de ayuda.</td></tr>
+                <tr><td><strong>Eficiencia</strong></td><td>¿Con qué tiempo y recursos?</td><td>Duración, latencia y consumo de recursos.</td></tr>
+                <tr><td><strong>Confiabilidad</strong></td><td>¿Opera sin fallas?</td><td>Caídas, incidentes y fallas por transacción.</td></tr>
+                <tr><td><strong>Seguridad</strong></td><td>¿Protege datos y operaciones?</td><td>Intentos rechazados, falsos positivos, incidentes.</td></tr>
+                <tr><td><strong>Compatibilidad</strong></td><td>¿Se integra con el ecosistema?</td><td>Repetición de cargas, errores entre sistemas y dispositivos.</td></tr>
+                <tr><td><strong>Mantenibilidad</strong></td><td>¿Puede corregirse y evolucionar?</td><td>Tiempo de reparación, retrabajo y costo de cambio.</td></tr>
+                <tr><td><strong>Portabilidad</strong></td><td>¿Puede adaptarse a otros entornos?</td><td>Esfuerzo para migrar o desplegar.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>El software debe observarse como <strong>producto</strong> que resuelve una necesidad, como <strong>servicio</strong> disponible y confiable, y como <strong>activo evolutivo</strong> capaz de cambiar sin perder calidad.</p>
+
+          <h3 id="proceso-calidad">Proceso, producto y gestión de calidad</h3>
+          <p>La experiencia visible emerge de diseño, desarrollo, integración, validación, despliegue, operación y soporte. Una falla puede originarse en la interfaz, una regla, un proveedor, una integración o la coordinación operativa. Mapear el proceso permite ubicar decisiones, esperas, datos, transferencias y mecanismos causales.</p>
+          <div class="cards three">
+            <article class="card"><span class="tag">Prevenir</span><h4>Aseguramiento</h4><p>Define criterios, prácticas y condiciones para evitar errores desde el inicio.</p></article>
+            <article class="card"><span class="tag">Medir</span><h4>Control</h4><p>Compara resultados con criterios y detecta desvíos.</p></article>
+            <article class="card"><span class="tag">Decidir</span><h4>Gestión</h4><p>Prioriza acciones a partir de lo detectado y coordina la mejora.</p></article>
+          </div>
+          <p>Las tres funciones ocurren simultáneamente y se retroalimentan. Calidad no es la “policía” al final: producto define valor, datos mide, operaciones explica excepciones, seguridad controla riesgos y usuarios validan la experiencia.</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Costo de calidad</th><th>Contenido</th><th>Lógica</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Prevención</strong></td><td>Diseño, capacitación y controles tempranos.</td><td>Evitar el error suele ser más barato.</td></tr>
+                <tr><td><strong>Evaluación</strong></td><td>Pruebas, revisiones y monitoreo.</td><td>Comprobar antes de escalar.</td></tr>
+                <tr><td><strong>Fallas</strong></td><td>Retrabajo interno; abandono, reclamos o daño externo.</td><td>Es el costo más caro para usuario y organización.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p><strong>Calidad de proceso</strong> reduce variabilidad y defectos; <strong>calidad de producto</strong> evalúa el resultado. Estandarizar o automatizar puede ser mejora incremental: hay innovación cuando aparece valor nuevo o significativamente mejorado.</p>
+
+          <h3 id="evidencia">De datos aislados a evidencia útil</h3>
+          <div class="flow">
+            <div class="flow-step">Dato<br><small>hecho registrado</small></div>
+            <div class="flow-step">Información<br><small>dato organizado</small></div>
+            <div class="flow-step">Conocimiento<br><small>patrón interpretado</small></div>
+            <div class="flow-step">Evidencia<br><small>información contrastada</small></div>
+            <div class="flow-step">Decisión<br><small>acción fundada</small></div>
+          </div>
+          <p>Un dato se vuelve evidencia cuando es pertinente, suficientemente corroborado y capaz de cambiar una decisión. La cadena mínima de validación es:</p>
+          <div class="formula">hipótesis → atributo → indicador → fuente → umbral → decisión</div>
+          <p>Los datos deben ser completos, exactos, actuales, consistentes y trazables. La gobernanza determina quién define, accede y responde por ellos; la privacidad exige usar solo lo necesario y con propósito legítimo; la trazabilidad permite reconstruir origen y transformaciones. Ningún modelo sofisticado compensa datos sesgados o mal interpretados.</p>
+
+          <h3 id="tecnologias-datos">Elegir BI, Data Mining, IA y Big Data con criterio</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Capacidad</th><th>Pregunta que responde</th><th>Límite clave</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Business Intelligence</strong></td><td>¿Qué pasó, cuánto, dónde y para quién?</td><td>Describe y compara; por sí solo no prueba causalidad.</td></tr>
+                <tr><td><strong>Data Mining</strong></td><td>¿Qué patrones o relaciones desconocidas aparecen?</td><td>Un patrón necesita validación y puede reflejar sesgos.</td></tr>
+                <tr><td><strong>IA / Machine Learning</strong></td><td>¿Podemos clasificar, predecir, recomendar, generar o automatizar?</td><td>Debe producir cambio medible y controlar sesgo, explicabilidad, privacidad, seguridad y dependencia.</td></tr>
+                <tr><td><strong>Big Data</strong></td><td>¿Volumen, velocidad o variedad exceden herramientas tradicionales?</td><td>No es un objetivo ni una cuarta opción: es una condición de escala que puede acompañar a las anteriores.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Machine Learning es una técnica dentro de IA; se superpone con Data Mining, pero su foco es aprender de datos históricos para generalizar o predecir casos nuevos. La arquitectura adecuada es la <strong>menor capaz de responder la pregunta</strong> con calidad y oportunidad, considerando costo, talento, seguridad, mantenimiento y adopción.</p>
+          <div class="callout tip"><span class="callout-title">Validar antes de actuar</span>Correlación, asociación o predicción no prueban causalidad. Hay que contrastar con datos fuera de muestra, revisar sesgos y variables omitidas y probar la intervención con usuarios reales. Predecir sin poder actuar tampoco crea valor.</div>
+          <p>La gobernanza de IA debe ser proporcional al impacto. En decisiones sensibles se requieren supervisión humana, explicación, trazabilidad y posibilidad de revisión.</p>
+        </section>
+
+        <section id="tp-clase-3">
+          <div class="section-head"><span class="section-no">TP</span><h2>Trabajo práctico de Clase 3</h2></div>
+          <p>Continúa el mismo caso y equipo de las clases 1 y 2. El entregable es una ficha de seis puntos y un pitch de 90 segundos; no se inicia otro proyecto.</p>
+          <ol>
+            <li>Tecnología, oportunidad e hipótesis de innovación.</li>
+            <li>Evidencia previa de potencial disruptivo.</li>
+            <li>Producto, proceso o experiencia que debería mejorar.</li>
+            <li>Brecha, atributos e indicadores.</li>
+            <li>Datos y tecnología analítica necesaria.</li>
+            <li>Resultado que confirmaría o refutaría la hipótesis.</li>
+          </ol>
+          <p>El cierre integra valor esperado, riesgo principal, aseguramiento, control y próxima validación.</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Tiempo</th><th>Momento</th><th>Salida</th></tr></thead>
+              <tbody>
+                <tr><td>0–15</td><td>Formular hipótesis</td><td>Afirmación explícita y verificable.</td></tr>
+                <tr><td>15–35</td><td>Definir criterios</td><td>Brecha, atributos e indicadores.</td></tr>
+                <tr><td>35–50</td><td>Planificar evidencia</td><td>Datos, herramienta, umbral, validación y guion.</td></tr>
+                <tr><td>50–70</td><td>Pitch</td><td>Presentación de 90 segundos y devolución.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>La evaluación pondera criterios de calidad (25%), evidencia de datos (25%), hipótesis verificable (20%), viabilidad (15%) y comunicación (15%). El pitch conecta hipótesis, resultado, indicador, evidencia y condición de revisión.</p>
+          <div class="formula">Una innovación defendible explica su promesa, su mecanismo, su medida y su valor.</div>
+        </section>
+
         <section id="tpo">
           <div class="section-head"><span class="section-no">TPO</span><h2>TPO integrador · Plan de negocios tecnológico</h2></div>
           <p class="lead">El trabajo busca demostrar coherencia estratégica, mercado definido, propuesta de valor consistente y fundamento económico-financiero suficiente.</p>
@@ -316,12 +436,15 @@
             <details><summary>¿Cuándo usar VUCA y cuándo BANI?</summary><p>VUCA para cambios todavía analizables; BANI para fragilidad, quiebres no lineales y experiencia humana. Pueden combinarse.</p></details>
             <details><summary>¿Qué diferencia hay entre deseable, factible y viable?</summary><p>Deseable: alguien lo necesita. Factible: puede construirse. Viable: puede sostenerse.</p></details>
             <details><summary>¿Qué enseña una curva S?</summary><p>Que el desempeño crece lento, acelera por aprendizaje y luego encuentra un límite; una nueva curva puede sustituirla.</p></details>
+            <details><summary>¿Qué hace verificable a una hipótesis de innovación?</summary><p>Explicita solución, mejora, usuarios, mecanismo, indicador y umbral; además define qué resultado obligaría a revisarla.</p></details>
+            <details><summary>¿Qué diferencia aseguramiento, control y gestión de calidad?</summary><p>Aseguramiento previene mediante criterios; control mide y detecta desvíos; gestión decide y coordina la mejora.</p></details>
+            <details><summary>¿Big Data es una alternativa a BI, Data Mining o IA?</summary><p>No. Es una condición de escala —volumen, velocidad o variedad— que puede acompañar a cualquiera de esas capacidades.</p></details>
           </div>
           <div class="formula">Tecnología habilita · Innovación implementa · Negocio sostiene · Disrupción transforma</div>
         </section>
 
         <footer>
-          Elaborado exclusivamente a partir del material ubicado en “Tecnología e Innovación”: Clase 01 — Innovación; lineamientos del TPO; presentaciones de Clase 02 sobre tecnología, disrupción, VUCA/BANI; ejercicio aplicado; y TP de Clase 2.
+          Elaborado exclusivamente a partir del material ubicado en “Tecnología e Innovación”: Clase 01 — Innovación; lineamientos del TPO; presentaciones y TP de Clase 02 sobre tecnología, disrupción y VUCA/BANI; y presentación y TP de Clase 03 sobre hipótesis, calidad, procesos, datos y evidencia.
         </footer>
       </div>
     </main>

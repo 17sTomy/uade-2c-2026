@@ -30,6 +30,7 @@ jobs:
           mkdir -p _site
           cp index.html _site/
           cp -R assets _site/
+          cp -R "Negocios Tecnológicos" _site/
           cp -R "Derecho Informático" _site/
           cp -R "Tecnología e Innovación" _site/
           touch _site/.nojekyll
