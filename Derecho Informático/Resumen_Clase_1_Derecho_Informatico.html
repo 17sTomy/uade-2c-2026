@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Resumen integral de las Unidades I, II y III de Derecho Informático — UADE, con Derecho de Autor e Internet.">
-  <title>Derecho Informático — Resumen Unidades I a III | UADE</title>
+  <link rel="icon" href="data:," />
+  <meta name="description" content="Resumen integral de las Unidades I a V de Derecho Informático — UADE: Derecho de Autor, Internet, bases de datos, marcas y patentes.">
+  <title>Derecho Informático — Resumen Unidades I a V | UADE</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -193,9 +194,12 @@
     /* Main */
     main {
       padding: 36px 28px 80px;
+      min-width: 0;
     }
     .content {
       max-width: var(--max);
+      min-width: 0;
+      overflow-wrap: anywhere;
       margin: 0 auto;
     }
 
@@ -350,7 +354,7 @@
     }
 
     @media (max-width: 920px) {
-      .shell { grid-template-columns: 1fr; }
+      .shell { grid-template-columns: minmax(0, 1fr); }
       .menu-btn { display: inline-flex; align-items: center; gap: 8px; }
       .sidebar {
         position: fixed;
@@ -385,7 +389,7 @@
     <aside class="sidebar" id="sidebar" aria-label="Índice de temas">
       <a class="home-link" href="../index.html">← Volver a materias</a>
       <p class="brand">Derecho Informático</p>
-      <p class="brand-sub">UADE · Unidades I, II y III</p>
+      <p class="brand-sub">UADE · Unidades I a V</p>
       <p class="toc-label">Índice</p>
       <nav>
         <ul class="toc" id="toc">
@@ -470,7 +474,42 @@
               <li><a href="#autor-ia">Inteligencia Artificial</a></li>
             </ul>
           </li>
-          <li><a href="#ideas">13. Ideas clave</a></li>
+          <li class="toc-group">
+            <div class="toc-row">
+              <a href="#bases-datos">13. Bases de datos y sitios web</a>
+              <button type="button" class="acc-btn" aria-expanded="false" aria-label="Abrir subtemas"></button>
+            </div>
+            <ul class="toc-subs">
+              <li><a href="#proteccion-bases">Capas de protección</a></li>
+              <li><a href="#sitios-web">Sitios web</a></li>
+              <li><a href="#medidas-tecnologicas">Medidas tecnológicas</a></li>
+            </ul>
+          </li>
+          <li class="toc-group">
+            <div class="toc-row">
+              <a href="#marcas">14. Derecho de Marcas</a>
+              <button type="button" class="acc-btn" aria-expanded="false" aria-label="Abrir subtemas"></button>
+            </div>
+            <ul class="toc-subs">
+              <li><a href="#principios-marcas">Principios marcarios</a></li>
+              <li><a href="#tipos-marcas">Tipos y registrabilidad</a></li>
+              <li><a href="#registro-marcas">Registro y oposiciones</a></li>
+              <li><a href="#confusion-marcas">Confusión e infracciones</a></li>
+            </ul>
+          </li>
+          <li class="toc-group">
+            <div class="toc-row">
+              <a href="#patentes">15. Patentes y modelos de utilidad</a>
+              <button type="button" class="acc-btn" aria-expanded="false" aria-label="Abrir subtemas"></button>
+            </div>
+            <ul class="toc-subs">
+              <li><a href="#patentabilidad">Requisitos de patentabilidad</a></li>
+              <li><a href="#exclusiones-patentes">Exclusiones y alcance</a></li>
+              <li><a href="#limites-patentes">Límites y licencias</a></li>
+              <li><a href="#modelos-utilidad">Modelos de utilidad</a></li>
+            </ul>
+          </li>
+          <li><a href="#ideas">16. Ideas clave</a></li>
         </ul>
       </nav>
     </aside>
@@ -479,15 +518,17 @@
       <div class="content" id="contenido">
         <header class="hero">
           <span class="eyebrow">UADE · Resumen de estudio</span>
-          <h1>Derecho Informático — Unidades I a III</h1>
+          <h1>Derecho Informático — Unidades I a V</h1>
           <p>
             Fundamentos del Derecho, relación entre informática y regulación, propiedad intelectual,
-            Derecho de Autor y sus desafíos en Internet en un único recorrido de estudio.
+            Derecho de Autor digital, bases de datos, marcas, patentes y modelos de utilidad en un único recorrido de estudio.
           </p>
           <div class="meta">
             <span class="chip">Unidad I · Conceptos generales</span>
             <span class="chip">Unidad II · Informática y Derecho</span>
             <span class="chip">Unidad III · Propiedad Intelectual y Derecho de Autor</span>
+            <span class="chip">Unidad IV · Marcas</span>
+            <span class="chip">Unidad V · Patentes y modelos de utilidad</span>
           </div>
         </header>
 
@@ -1232,8 +1273,133 @@
         </section>
 
         <!-- 13 -->
+        <section id="bases-datos">
+          <h2>13. Unidad III — Bases de datos y protección digital</h2>
+          <p>Una <strong>base de datos</strong> es un conjunto de datos compilados para almacenarlos, procesarlos y recuperarlos mediante sistemas informáticos. Su valor no suele estar en un dato aislado, sino en la selección, clasificación, actualización y presentación del conjunto.</p>
+          <div class="formula">Regla central: el Derecho de Autor puede proteger la estructura original de la base —selección o disposición—, pero no se apropia de los datos, hechos o informaciones considerados en sí mismos.</div>
+          <p>TRIPs y el Tratado OMPI reconocen las compilaciones que constituyan creaciones intelectuales. En Argentina, la Ley 25.036 incorporó las compilaciones de datos al art. 1 de la Ley 11.723. Una inversión costosa, por sí sola, no reemplaza el requisito de <strong>originalidad</strong>.</p>
+
+          <h3 id="proteccion-bases">Capas complementarias de protección</h3>
+          <div class="grid-2">
+            <div class="compare"><h4>Derecho de Autor</h4><p>Protege la selección o disposición creativa. Su límite son los datos y las bases puramente exhaustivas o automáticas sin originalidad.</p></div>
+            <div class="compare"><h4>Contratos y Términos de Uso</h4><p>Pueden prohibir redistribución, extracción masiva o comunicación a terceros y definir licencias, usuarios y usos permitidos.</p></div>
+            <div class="compare"><h4>Medidas técnicas y prueba</h4><p>DRM, controles de acceso y límites de descarga reducen la copia; los <em>errores inocuos</em> documentados permiten demostrar una apropiación.</p></div>
+            <div class="compare"><h4>Tutela supletoria</h4><p>La competencia desleal y el enriquecimiento sin causa responden al aprovechamiento parasitario. La UE agrega un derecho <em>sui generis</em> ligado a la inversión sustancial.</p></div>
+          </div>
+          <div class="ejemplo"><strong>Mapa o plataforma gastronómica:</strong> nombres, direcciones y horarios no se monopolizan; sí puede protegerse una selección editorial original. La extracción sistemática mediante <em>bots</em> también puede violar el contrato o constituir competencia desleal.</div>
+
+          <h3 id="sitios-web">El sitio web como obra compuesta</h3>
+          <p>Un sitio reúne bienes con titulares y regímenes diferentes: <strong>contenidos</strong>, <strong>diseño e interfaz</strong>, <strong>software</strong> y <strong>nombre de dominio o signos distintivos</strong>. Antes de explotarlo conviene acordar quién es titular de cada elemento y qué derechos ceden diseñadores, programadores y proveedores de contenido.</p>
+          <p>Si el conjunto es original, el material contempla su registro ante la DNDA mediante el depósito de una copia; el registro es probatorio y cada versión sustancialmente nueva debe documentarse. El dominio y la marca requieren, además, sus vías específicas.</p>
+
+          <h3 id="medidas-tecnologicas">Medidas tecnológicas y actos de elusión</h3>
+          <ul>
+            <li><strong>Anticopia:</strong> bloquean impresión, duplicación o descarga.</li>
+            <li><strong>Control de acceso:</strong> contraseñas, claves, firma digital, cifrado o restricciones territoriales.</li>
+            <li><strong>Marcado y seguimiento:</strong> <em>fingerprinting</em> y marcas de agua visibles o invisibles para rastrear una copia.</li>
+            <li><strong>DRM:</strong> identifica la obra y aplica reglas sobre ejecuciones, copias, impresión o transferencia.</li>
+          </ul>
+          <p>Para ser legítimas deben resultar eficaces, informar consecuencias relevantes, no dañar los equipos y respetar la privacidad. El art. 11 del Tratado OMPI exige remedios contra la elusión y la DMCA también reprime dispositivos o servicios especialmente orientados a sortear estas medidas.</p>
+          <div class="grid-2">
+            <div class="compare"><h4>Estándar Betamax</h4><p><em>Universal v. Sony</em>: una tecnología de usos múltiples no se prohíbe cuando posee usos sustancialmente legítimos; el fabricante no responde automáticamente por toda infracción del usuario.</p></div>
+            <div class="compare"><h4>Inducción activa</h4><p><em>MGM v. Grokster</em>: diseñar, promocionar o explotar una tecnología para inducir infracciones sí puede generar responsabilidad. El uso dual no funciona como inmunidad absoluta.</p></div>
+          </div>
+          <p><strong>Ryanair v. PR Aviation</strong> refuerza la eficacia contractual frente a la extracción de bases no originales; <strong>Metatarget</strong> muestra la aplicación local de competencia desleal y enriquecimiento sin causa frente al uso sistemático de datos comerciales.</p>
+        </section>
+
+        <!-- 14 -->
+        <section id="marcas">
+          <h2>14. Unidad IV — Derecho de Marcas</h2>
+          <p>Una <strong>marca</strong> es todo signo con capacidad distintiva para identificar productos o servicios y diferenciarlos en el mercado. Funciona como puente entre empresa y consumidor: indica origen, condensa reputación y calidad, sirve a la publicidad, ordena la competencia y reduce el riesgo de engaño.</p>
+          <p>El marco central argentino es la <strong>Ley 22.362</strong>, administrada por el INPI, junto con el Convenio de París, TRIPs y la Clasificación de Niza. La Hesperidina se recuerda como la primera marca registrada del país.</p>
+
+          <h3 id="principios-marcas">Los cinco principios marcarios</h3>
+          <div class="laws">
+            <div class="law"><code>Exclusividad</code><span>El titular puede usar, ceder y licenciar la marca, y excluir signos idénticos o similares que causen confusión.</span></div>
+            <div class="law"><code>Especialidad</code><span>La protección se limita a los productos o servicios solicitados en cada clase de Niza.</span></div>
+            <div class="law"><code>Territorialidad</code><span>Rige en el territorio de registro; las marcas notorias reciben protección ampliada.</span></div>
+            <div class="law"><code>Temporalidad</code><span>Dura 10 años y puede renovarse indefinidamente por períodos iguales, sujeta al uso.</span></div>
+            <div class="law"><code>Atributivo</code><span>En Argentina el derecho nace, como regla, con el registro: prevalece quien primero solicita.</span></div>
+          </div>
+          <p>Las <strong>marcas de hecho</strong> son la excepción jurisprudencial al sistema atributivo: pueden ser tuteladas si generaron clientela mediante un uso intenso, público y continuado. Las <strong>marcas notorias</strong> también desbordan especialidad y territorialidad para evitar confusión, aprovechamiento de prestigio y <strong>dilución</strong> de su poder distintivo.</p>
+          <div class="formula">Marca fuerte: fantasiosa o muy distintiva → protección amplia. Marca débil: evocativa o descriptiva → debe tolerar mayor proximidad de otros signos.</div>
+
+          <h3 id="tipos-marcas">Tipos de marcas y signos registrables</h3>
+          <ul>
+            <li><strong>Denominativas:</strong> palabras, letras o números; <strong>figurativas:</strong> dibujos o emblemas; <strong>mixtas:</strong> combinan ambos elementos.</li>
+            <li><strong>De fantasía:</strong> no evocan el producto y suelen ser fuertes; <strong>evocativas:</strong> lo sugieren indirectamente; <strong>descriptivas:</strong> expresan cualidades o funciones y tienen tutela débil o nula.</li>
+            <li><strong>No tradicionales:</strong> formas tridimensionales, <em>trade dress</em>, secuencias animadas, sonidos y, con fuertes exigencias de representación y distintividad, texturas u olores.</li>
+          </ul>
+          <div class="grid-2">
+            <div class="compare"><h4>Art. 2 — no son marca</h4><p>Carecen de distintividad apropiable: designaciones necesarias, vocablos ya genéricos, formas funcionalmente necesarias y el color natural o intrínseco del producto.</p></div>
+            <div class="compare"><h4>Art. 3 — registro prohibido</h4><p>Pueden ser distintivos, pero la ley los excluye: signos confundibles, engañosos, contrarios a la moral, distintivos oficiales, denominaciones de origen, nombres sin autorización o frases publicitarias sin originalidad.</p></div>
+          </div>
+          <div class="ejemplo"><strong>Color aplicado:</strong> un color aislado no debe bloquear la competencia, pero su ubicación constante y distintiva puede protegerse. Los casos Louboutin distinguieron la suela roja contrastante de un zapato enteramente rojo.</div>
+
+          <h3 id="registro-marcas">Registro, prioridad y oposiciones</h3>
+          <p>El solicitante necesita capacidad e <strong>interés legítimo</strong>; el signo debe reunir distintividad, disponibilidad y licitud. El trámite que explica el material sigue esta secuencia:</p>
+          <ol>
+            <li><strong>Solicitud en línea:</strong> identifica al solicitante, el signo y los productos o servicios. La fecha y hora fijan la prelación.</li>
+            <li><strong>Publicación:</strong> un día en el Boletín de Marcas.</li>
+            <li><strong>Examen y oposiciones:</strong> dentro de 30 días corridos, el INPI estudia registrabilidad y terceros con interés legítimo pueden oponerse.</li>
+            <li><strong>Resolución:</strong> las partes intentan resolver oposiciones; si subsisten, decide el INPI. Superado el examen, concede o deniega y, si concede, emite el título.</li>
+          </ol>
+          <p>El Convenio de París reconoce <strong>seis meses de prioridad</strong> para extender a otros países miembros una primera solicitud. La marca conjunta exige actuación común para licenciar, transferir o renovar.</p>
+
+          <h3 id="confusion-marcas">Confusión, extinción y defensa</h3>
+          <p>La confusión es <strong>directa</strong> cuando el consumidor toma un producto por otro, e <strong>indirecta</strong> cuando atribuye a ambos el mismo origen o cree que integran una línea común. El cotejo abarca tres planos:</p>
+          <div class="grid-2" style="grid-template-columns: 1fr;">
+            <div class="compare"><h4>Visual</h4><p>Rasgos gráficos, raíces denominativas, dibujos, tipografías, colores, envases y presentación de conjunto.</p></div>
+            <div class="compare"><h4>Fonético</h4><p>Sonido según la pronunciación habitual, especialmente relevante en venta minorista y publicidad oral.</p></div>
+            <div class="compare"><h4>Conceptual</h4><p>Ideas o significados evocados. Se comparan las marcas sucesivamente, como las recordaría el consumidor medio, atendiendo más a similitudes que a diferencias.</p></div>
+          </div>
+          <p>El derecho se extingue por renuncia, vencimiento sin renovación, caducidad o nulidad. La <strong>caducidad</strong> sanciona la falta de uso durante los cinco años relevantes; la <strong>nulidad</strong> alcanza registros contrarios a la ley, obtenidos de mala fe, por piratería o con fines meramente especulativos.</p>
+          <p>La defensa comprende cese de uso, indemnización, secuestro, embargo, inventario y medidas urgentes. El art. 31 tipifica falsificación, imitación fraudulenta, uso y comercialización de marcas o productos en infracción. Los casos <strong>La Vaca que Ríe</strong>, <strong>Bagley/Dilexis</strong> y <strong>Unilever/Wella</strong> muestran la tutela frente a copia servil, envases confundibles y marcas de hecho.</p>
+        </section>
+
+        <!-- 15 -->
+        <section id="patentes">
+          <h2>15. Unidad V — Patentes y modelos de utilidad</h2>
+          <p>La <strong>patente</strong> es el título por el cual el Estado concede al inventor o a sus causahabientes un derecho exclusivo y territorial sobre una invención, a cambio de divulgarla a la sociedad. Busca que la exclusividad temporal permita recuperar la inversión en I+D y, al mismo tiempo, que el conocimiento técnico quede disponible al vencer el plazo.</p>
+          <p>Su marco incluye los arts. 17 y 75 inc. 19 de la Constitución, el Convenio de París, TRIPs y la <strong>Ley 24.481</strong>. Frente a una actividad inventiva también pueden elegirse secreto, <em>know-how</em> o modelo de utilidad, según la posibilidad de mantener confidencialidad, el nivel inventivo y la estrategia comercial.</p>
+          <div class="formula">Descubrimiento = encuentra algo preexistente. Invención = creación humana que transforma materia o energía y aporta una solución técnica a un problema.</div>
+
+          <h3 id="patentabilidad">Tres requisitos de patentabilidad</h3>
+          <div class="laws">
+            <div class="law"><code>Novedad absoluta</code><span>No integra el estado mundial de la técnica antes de la solicitud. La divulgación propia tiene la excepción anual prevista en el art. 5.</span></div>
+            <div class="law"><code>Actividad inventiva</code><span>La solución no resulta obvia para una persona versada en la materia; exige un salto técnico relevante.</span></div>
+            <div class="law"><code>Aplicación industrial</code><span>Puede fabricarse o aplicarse en serie en alguna rama productiva o de servicios y produce un resultado práctico.</span></div>
+          </div>
+          <p>Puede patentarse un <strong>producto</strong> o un <strong>procedimiento</strong>. Las <strong>reivindicaciones</strong> son decisivas: describen las características técnicas y fijan el límite exacto de lo que terceros deben respetar.</p>
+
+          <h3 id="exclusiones-patentes">¿Qué queda afuera y qué derecho se obtiene?</h3>
+          <div class="grid-2">
+            <div class="compare"><h4>Art. 6 — no son invenciones</h4><p>Descubrimientos, teorías y métodos matemáticos; obras estéticas; planes, reglas o métodos intelectuales o comerciales; software considerado en sí; presentación de información; métodos médicos; yuxtaposiciones obvias y materia viva preexistente.</p></div>
+            <div class="compare"><h4>Art. 7 — invenciones no patentables</h4><p>Son técnicamente invenciones, pero se excluyen por orden público, moralidad, salud, vida o ambiente, y ciertos procedimientos biológicos o genéticos. La diferencia con el art. 6 es conceptual y suele ser pregunta de examen.</p></div>
+          </div>
+          <p>El inventor conserva el derecho personal a ser mencionado. En lo patrimonial, puede impedir fabricar, usar, ofrecer, vender o importar el producto; en una patente de procedimiento también controla el uso del proceso y el producto obtenido directamente por él. Puede ceder la titularidad o licenciar su explotación.</p>
+          <p>La patente dura <strong>20 años improrrogables desde la solicitud</strong>. El derecho de exclusión nace con la concesión; terminado el plazo, la invención pasa al dominio público. Como es territorial, debe obtenerse protección donde se pretenda hacer valer, aunque el PCT simplifica la tramitación internacional.</p>
+
+          <h3 id="limites-patentes">Límites, licencias y defensa</h3>
+          <ul>
+            <li><strong>Usos permitidos:</strong> actos privados o académicos no comerciales, investigación, preparación individual de medicamentos por receta, empleo necesario a bordo de vehículos extranjeros y circulación luego del agotamiento por primera venta.</li>
+            <li><strong>Licencias obligatorias:</strong> el INPI puede autorizarlas ante falta de explotación, abuso de posición dominante, necesidad de acceso tecnológico, emergencia sanitaria, seguridad nacional o abastecimiento.</li>
+            <li><strong>Salud pública:</strong> la Declaración de Doha afirma que TRIPs no impide adoptar medidas para protegerla y promover el acceso a medicamentos.</li>
+            <li><strong>Defensa:</strong> acciones de cese, indemnización y nulidad, medidas cautelares y delitos por producción, importación o comercialización consciente, revelación desleal y falsa invocación de patente.</li>
+          </ul>
+
+          <h3 id="modelos-utilidad">Modelos de utilidad: las “pequeñas patentes”</h3>
+          <p>Protegen una nueva forma o disposición aplicada a herramientas, instrumentos, utensilios, dispositivos u objetos conocidos que produce una <strong>mejora funcional</strong>. No tutelan la apariencia ornamental —propia de modelos y diseños industriales—, sino una mejor utilización.</p>
+          <div class="grid-2">
+            <div class="compare"><h4>Patente de invención</h4><p>Novedad absoluta + actividad inventiva + aplicación industrial. Protección por 20 años.</p></div>
+            <div class="compare"><h4>Modelo de utilidad</h4><p>Novedad absoluta + aplicación industrial; no exige actividad inventiva. Certificado por 10 años improrrogables.</p></div>
+          </div>
+          <p>La solicitud debe describir la nueva configuración, la mejora funcional y su relación causal, además de reivindicaciones y dibujos. La ley permite convertir una solicitud de patente en modelo de utilidad —o viceversa— cuando se eligió incorrectamente la vía.</p>
+        </section>
+
+        <!-- 16 -->
         <section id="ideas">
-          <h2>13. Ideas clave para recordar</h2>
+          <h2>16. Ideas clave para recordar</h2>
           <ul class="key-list">
             <li>El <strong>Estado</strong> se compone de población, territorio, gobierno, derecho y poder.</li>
             <li>Formas de Estado: <strong>unitario</strong>, <strong>federal</strong>, <strong>confederación</strong> (con derechos de <strong>secesión</strong> y <strong>nulificación</strong>).</li>
@@ -1255,11 +1421,17 @@
             <li>Las excepciones deben superar la regla de los tres pasos; cita, educación, accesibilidad y copia de respaldo tienen requisitos estrictos.</li>
             <li>En Internet, almacenar digitalmente es reproducir; el puerto seguro exige reacción diligente y la ignorancia deliberada no exime.</li>
             <li>Para IA: distinguir entrenamiento, resultado, aporte creativo humano y posible responsabilidad del usuario, proveedor o plataforma.</li>
+            <li>En bases de datos, se protege la <strong>selección o disposición original</strong>, no los datos aislados; la tutela eficaz combina autor, contratos, tecnología y competencia desleal.</li>
+            <li>Un sitio web es una obra compuesta: contenido, interfaz, código y dominio pueden tener titulares y vías de protección diferentes.</li>
+            <li>Marcas: <strong>exclusividad, especialidad, territorialidad, temporalidad y sistema atributivo</strong>; la notoriedad y las marcas de hecho introducen excepciones.</li>
+            <li>La confusión marcaria puede ser directa o indirecta y se estudia en los planos visual, fonético y conceptual desde la percepción del consumidor.</li>
+            <li>Patente: <strong>novedad absoluta + actividad inventiva + aplicación industrial</strong>; las reivindicaciones delimitan el monopolio y el plazo es de 20 años desde la solicitud.</li>
+            <li>Modelo de utilidad: mejora funcional de un objeto conocido, sin exigencia de actividad inventiva; dura <strong>10 años</strong>.</li>
           </ul>
         </section>
 
         <footer>
-          Resumen elaborado a partir de “Clase 1 Presentación – Informática y Derecho”; las presentaciones de las Unidades I — Conceptos Generales del Derecho, II — Informática y Derecho y III — Derecho de la Propiedad Intelectual e Industrial; y los materiales “Unidad III — Derecho de Autor” (partes 1 y 2) y “Derecho de Autor en Internet 2026” (UADE).
+          Resumen elaborado a partir de “Clase 1 Presentación – Informática y Derecho”; las presentaciones de las Unidades I, II y III; los materiales “Unidad III — Derecho de Autor” (partes 1 y 2), “Derecho de Autor en Internet 2026” y “Bases de Datos 2026”; “Unidad IV — Derecho de Marcas” (materiales 1 y 2); y “Unidad V — Patentes y Modelos de Utilidad” (UADE).
           Para estudiar offline, abrí este archivo en el navegador.
         </footer>
       </div>
