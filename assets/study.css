@@ -220,6 +220,8 @@ tr:last-child td { border-bottom: 0; }
 .quiz details:last-child { border-bottom: 0; }
 .quiz summary { cursor: pointer; font-weight: 700; }
 .quiz p { margin: 8px 0 0; color: rgba(255,255,255,.78); }
+.quiz ol { margin: 10px 0 2px; padding-left: 1.6rem; color: rgba(255,255,255,.78); }
+.quiz li + li { margin-top: 6px; }
 
 .source-note { color: var(--muted); font-size: .82rem; }
 footer { margin-top: 58px; padding: 22px 0 0; border-top: 1px solid var(--line); color: var(--muted); font-size: .83rem; }
