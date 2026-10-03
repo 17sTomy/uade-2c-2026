@@ -234,6 +234,7 @@ footer { margin-top: 58px; padding: 22px 0 0; border-top: 1px solid var(--line);
   .sidebar.open { transform: translateX(0); }
   .backdrop.show { display: block; position: fixed; inset: 0; z-index: 15; background: rgba(15, 26, 22, .45); }
   main { padding: 68px 18px 64px; }
+  section[id], h3[id] { scroll-margin-top: 80px; }
 }
 
 @media (max-width: 680px) {

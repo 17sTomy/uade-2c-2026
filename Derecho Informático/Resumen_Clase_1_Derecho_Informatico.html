@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" href="data:," />
-  <meta name="description" content="Resumen integral de las Unidades I a V de Derecho Informático — UADE: Derecho de Autor, Internet, bases de datos, marcas y patentes.">
-  <title>Derecho Informático — Resumen Unidades I a V | UADE</title>
+  <meta name="description" content="Resumen integral de las Unidades I a VII de Derecho Informático — UADE: Derecho de Autor, marcas, patentes, dominios, otras protecciones, datos personales e imagen.">
+  <title>Derecho Informático — Resumen Unidades I a VII | UADE</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -408,8 +408,15 @@
       }
       .backdrop.show { display: block; }
       main { padding: 72px 18px 64px; }
+      section[id], h3[id] { scroll-margin-top: 80px; }
       .grid-2 { grid-template-columns: 1fr; }
     }
+    /* Comparaciones de las unidades IV, VI y VII. */
+    .table-wrap { overflow-x: auto; margin: 18px 0; border: 1px solid var(--line); border-radius: 14px; background: white; }
+    .table-wrap table { width: 100%; min-width: 540px; border-collapse: collapse; font-size: .9rem; }
+    .table-wrap th, .table-wrap td { padding: 13px 15px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+    .table-wrap th { color: var(--accent); background: var(--highlight); }
+    .table-wrap tr:last-child td { border-bottom: 0; }
   </style>
 </head>
 <body>
@@ -421,7 +428,7 @@
     <aside class="sidebar" id="sidebar" aria-label="Índice de temas">
       <a class="home-link" href="../index.html">← Volver a materias</a>
       <p class="brand">Derecho Informático</p>
-      <p class="brand-sub">UADE · Unidades I a V</p>
+      <p class="brand-sub">UADE · Unidades I a VII</p>
       <p class="toc-label">Índice</p>
       <nav>
         <ul class="toc" id="toc">
@@ -540,10 +547,58 @@
               <li><a href="#modelos-utilidad">Modelos de utilidad</a></li>
             </ul>
           </li>
-          <li><a href="#ideas">16. Ideas clave</a></li>
           <li class="toc-group">
             <div class="toc-row">
-              <a href="#preguntas-parcial">17. Preguntas de parcial</a>
+              <a href="#dominios">16. Nombres de dominio</a>
+              <button type="button" class="acc-btn" aria-expanded="false" aria-label="Abrir subtemas"></button>
+            </div>
+            <ul class="toc-subs">
+              <li><a href="#dns-registro">DNS y registro</a></li>
+              <li><a href="#conflictos-dominios">Conflictos y UDRP</a></li>
+              <li><a href="#nic-argentina">NIC Argentina</a></li>
+            </ul>
+          </li>
+          <li class="toc-group">
+            <div class="toc-row">
+              <a href="#otras-protecciones">17. Otras protecciones</a>
+              <button type="button" class="acc-btn" aria-expanded="false" aria-label="Abrir subtemas"></button>
+            </div>
+            <ul class="toc-subs">
+              <li><a href="#disenos-industriales">Modelos y diseños</a></li>
+              <li><a href="#secreto-knowhow">Secreto y know-how</a></li>
+              <li><a href="#designaciones">Designaciones</a></li>
+            </ul>
+          </li>
+          <li class="toc-group">
+            <div class="toc-row">
+              <a href="#datos-personales">18. Datos personales</a>
+              <button type="button" class="acc-btn" aria-expanded="false" aria-label="Abrir subtemas"></button>
+            </div>
+            <ul class="toc-subs">
+              <li><a href="#principios-datos">Conceptos y calidad</a></li>
+              <li><a href="#consentimiento-datos">Consentimiento y circulación</a></li>
+              <li><a href="#derechos-habeas-data">Derechos y hábeas data</a></li>
+              <li><a href="#categorias-datos">Categorías especiales</a></li>
+              <li><a href="#olvido-crediticio">Olvido y caso Denegri</a></li>
+              <li><a href="#cloud-datos">Cloud y encargados</a></li>
+              <li><a href="#marketing-datos">Cookies y marketing</a></li>
+            </ul>
+          </li>
+          <li class="toc-group">
+            <div class="toc-row">
+              <a href="#derecho-imagen">19. Imagen y voz</a>
+              <button type="button" class="acc-btn" aria-expanded="false" aria-label="Abrir subtemas"></button>
+            </div>
+            <ul class="toc-subs">
+              <li><a href="#imagen-consentimiento">Protección y consentimiento</a></li>
+              <li><a href="#imagen-excepciones">Excepciones y redes</a></li>
+              <li><a href="#repaso-unidades-nuevas">Repaso de temas nuevos</a></li>
+            </ul>
+          </li>
+          <li><a href="#ideas">20. Ideas clave</a></li>
+          <li class="toc-group">
+            <div class="toc-row">
+              <a href="#preguntas-parcial">21. Preguntas de parcial</a>
               <button type="button" class="acc-btn" aria-expanded="false" aria-label="Abrir subtemas"></button>
             </div>
             <ul class="toc-subs">
@@ -560,18 +615,20 @@
       <div class="content" id="contenido">
         <header class="hero">
           <span class="eyebrow">UADE · Resumen de estudio</span>
-          <h1>Derecho Informático — Unidades I a V</h1>
+          <h1>Derecho Informático — Unidades I a VII</h1>
           <p>
             Fundamentos del Derecho, relación entre informática y regulación, propiedad intelectual,
-            Derecho de Autor digital, bases de datos, marcas, patentes y modelos de utilidad en un único recorrido de estudio.
+            Derecho de Autor digital, marcas, patentes, dominios, otras formas de protección, datos personales e imagen en un único recorrido de estudio.
           </p>
           <div class="meta">
             <span class="chip">Unidad I · Conceptos generales</span>
             <span class="chip">Unidad II · Informática y Derecho</span>
             <span class="chip">Unidad III · Propiedad Intelectual y Derecho de Autor</span>
-            <span class="chip">Unidad IV · Marcas</span>
+            <span class="chip">Unidad IV · Marcas y dominios</span>
             <span class="chip">Unidad V · Patentes y modelos de utilidad</span>
-            <span class="chip">57 preguntas de parcial</span>
+            <span class="chip">Unidad VI · Otras protecciones</span>
+            <span class="chip">Unidad VII · Datos e imagen</span>
+            <span class="chip">57 preguntas de parcial + repaso nuevo</span>
           </div>
         </header>
 
@@ -1426,9 +1483,175 @@
           <p>La solicitud debe describir la nueva configuración, la mejora funcional y su relación causal, además de reivindicaciones y dibujos. La ley permite convertir una solicitud de patente en modelo de utilidad —o viceversa— cuando se eligió incorrectamente la vía.</p>
         </section>
 
-        <!-- 16 -->
+        <section id="dominios">
+          <h2>16. Unidad IV — Nombres de dominio</h2>
+          <p>El <strong>nombre de dominio</strong> identifica un recurso en Internet mediante una denominación legible. El <strong>DNS</strong> relaciona nombres con información técnica, incluidas direcciones IP. La exclusividad del nombre es técnica dentro de su ubicación en el sistema; no equivale a adquirir una marca ni supone que cada nombre tenga una única IP exclusiva.</p>
+          <div class="grid-2">
+            <div class="compare"><h4>Marca</h4><p>Signo que distingue productos o servicios. Su exclusividad es jurídica, territorial y, como regla, limitada por la especialidad.</p></div>
+            <div class="compare"><h4>Dominio</h4><p>Nombre exclusivo dentro del espacio registrado. Su registro permite usarlo, pero puede cuestionarse por afectar derechos de terceros.</p></div>
+          </div>
+          <h3 id="dns-registro">Estructura, administradores y registro</h3>
+          <p>En <code>https://www.ejemplo.com.ar</code>, <code>https</code> indica el esquema de acceso; <code>www</code> es un subdominio habitual; <code>.ar</code> es el dominio territorial superior; <code>com.ar</code> es la zona bajo la que se registra <code>ejemplo.com.ar</code>. La URL completa puede incluir además ruta, parámetros y fragmento.</p>
+          <ul>
+            <li><strong>gTLD:</strong> dominios superiores genéricos, como <code>.com</code>, <code>.net</code> y <code>.org</code>. Algunos espacios tienen requisitos especiales.</li>
+            <li><strong>ccTLD:</strong> dominios superiores territoriales, como <code>.ar</code>, <code>.es</code> o <code>.uk</code>.</li>
+            <li><strong>ICANN:</strong> coordina identificadores de Internet; el registro de dominios genéricos se realiza a través de registradores acreditados.</li>
+            <li><strong>NIC Argentina:</strong> administra el espacio <code>.ar</code>; sus trámites se gestionan mediante TAD.</li>
+          </ul>
+          <p>La cátedra presenta al dominio como un <strong>bien inmaterial con derecho de uso de carácter especial</strong>, vinculado a un contrato de adhesión con el sistema de registro. Rige la prioridad de quien primero solicita y obtiene el nombre, pero esa prioridad cede frente a registros abusivos o a un mejor derecho acreditado.</p>
+          <h3 id="conflictos-dominios">Ciberocupación, parasitismo y UDRP</h3>
+          <p><strong>Cybersquatting o ciberocupación:</strong> registro abusivo de una denominación ajena para obtener un beneficio injustificado, por ejemplo revendérsela a su titular. <strong>Parasitismo o typosquatting:</strong> usar un nombre parecido para aprovechar errores de escritura, desviar visitas, confundir usuarios o explotar la reputación ajena.</p>
+          <p>En la <strong>UDRP</strong>, el reclamante debe acreditar conjuntamente:</p>
+          <ol>
+            <li>Identidad o similitud confundible con una marca sobre la que tiene derechos.</li>
+            <li>Falta de derechos o intereses legítimos del titular del dominio.</li>
+            <li>Registro <strong>y</strong> uso de mala fe.</li>
+          </ol>
+          <p>La oferta genuina previa de bienes o servicios, ser conocido por ese nombre o un uso legítimo no comercial pueden demostrar interés legítimo. La falta de una web activa no prueba por sí sola todos los requisitos. La mala fe puede evidenciarse en la reventa especulativa, el bloqueo de un competidor o la captación de usuarios mediante confusión.</p>
+          <p>El procedimiento se tramita ante proveedores habilitados, como la OMPI, con uno o tres expertos. Sus remedios son la <strong>transferencia o cancelación</strong> del dominio; no una indemnización. La vía judicial permanece disponible. Fuente de contraste: <a href="https://www.icann.org/resources/pages/policy-2024-02-21-en/">política UDRP de ICANN, apartado 4</a>.</p>
+          <div class="ejemplo"><strong>Casos del material:</strong> unas iniciales personales pueden fundar un interés legítimo aunque coincidan con una empresa. El conflicto <em>mikerowesoft.com</em> terminó en un acuerdo con Microsoft: sirve para discutir semejanza fonética e intereses enfrentados, no como sentencia que haya resuelto todos los requisitos de la UDRP.</div>
+          <h3 id="nic-argentina">NIC Argentina: titularidad, renovación y disputa</h3>
+          <ul>
+            <li>El titular puede ser una persona humana mayor de edad o jurídica, residente o no residente, y actuar mediante representante. Los datos declarados deben ser veraces y mantenerse actualizados.</li>
+            <li>El registro dura <strong>un año</strong>. Puede renovarse desde 30 días antes del vencimiento y durante la gracia: <strong>30 días con delegación activa + 15 días sin delegación</strong>, conservando la titularidad. Sin renovación, el registro se da de baja. <a href="https://nic.ar/es/node/269">NIC: vencimiento y renovación</a>.</li>
+            <li>Altas, renovaciones, transferencias y disputas son trámites arancelados. Los importes de las diapositivas son históricos; no sirven como tarifas actuales.</li>
+            <li>La disputa local exige invocar y fundamentar un <strong>mejor derecho o interés legítimo</strong>, aportar documentación y dar oportunidad de respuesta al titular. No debe confundirse con la UDRP de dominios genéricos.</li>
+            <li>El reglamento explicado en clase prevé restricciones a transferencias durante una disputa, el período de gracia o medidas judiciales/administrativas; contempla también transmisión por fallecimiento acreditando la calidad de causahabiente.</li>
+            <li>NIC puede rechazar o revocar registros de mala fe, engañosos, discriminatorios o que suplanten identidades. El registro no implica aprobación del contenido del sitio.</li>
+          </ul>
+          <div class="formula">Registrar primero no legitima apropiarse de un signo ajeno de mala fe.</div>
+        </section>
+
+        <section id="otras-protecciones">
+          <h2>17. Unidad VI — Otras formas de protección</h2>
+          <h3 id="disenos-industriales">Modelos y diseños industriales: proteger la apariencia</h3>
+          <p>El Decreto-Ley <strong>6673/63</strong> protege formas o aspectos ornamentales nuevos incorporados a productos industriales o artesanales. El <strong>modelo industrial</strong> es tridimensional —por ejemplo, la forma ornamental de una lámpara—; el <strong>diseño industrial</strong> es bidimensional —por ejemplo, un estampado—.</p>
+          <div class="grid-2"><div class="compare"><h4>Modelo de utilidad</h4><p>Protege una nueva disposición o forma que mejora una función práctica. El eje es la utilidad técnica.</p></div><div class="compare"><h4>Modelo o diseño industrial</h4><p>Protege la apariencia ornamental novedosa. El eje es cómo se ve el producto, no cómo funciona.</p></div></div>
+          <ul>
+            <li><strong>Adquisición:</strong> registro ante el INPI. La presentación identifica la creación mediante dibujos, fotografías o reproducciones; el control formal no garantiza que no existan derechos anteriores.</li>
+            <li><strong>Duración:</strong> 5 años desde el depósito, renovables por dos períodos iguales: <strong>máximo 15 años</strong>. La renovación puede pedirse en los seis meses previos o posteriores al vencimiento.</li>
+            <li><strong>Novedad:</strong> no debe haberse divulgado antes del depósito, salvo los supuestos legales de divulgación dentro de los seis meses anteriores. No se protege la forma impuesta por una función técnica, la falta de fisonomía propia, un mero cambio de color ni lo contrario a la moral.</li>
+            <li><strong>Alcance:</strong> permite explotar, transferir y excluir reproducciones no autorizadas, incluso aplicadas a otros productos. Pueden incluirse hasta 20 modelos o diseños de una misma clase de Locarno en una solicitud.</li>
+            <li><strong>Relación laboral:</strong> corresponde al autor, salvo creación específicamente contratada o mera ejecución de instrucciones; si es obra conjunta de empleador y empleado, pertenece a ambos salvo acuerdo contrario.</li>
+          </ul>
+          <p><strong>Defensa:</strong> cese, daños, medidas precautorias, secuestro e inventario; la mala fe agrega consecuencias como restitución de frutos. El registro de quien no es autor puede discutirse mediante cancelación y reivindicación. El material distingue el plazo legal de cinco años de esas acciones y el criterio del plenario <em>D’Uva c/ Schirripa</em> para registros de mala fe.</p>
+          <p>Se contemplan ilícitos de fabricación, comercialización, tenencia maliciosa y falsa invocación de un registro. Si también es una obra artística, el art. 28 impide invocar simultáneamente ambos regímenes en la defensa judicial; permite convertir una solicitud de patente o modelo de utilidad mal encuadrada en una de diseño. Referencia: <a href="https://www.argentina.gob.ar/normativa/nacional/decreto_ley-6673-1963-27687/actualizacion">Decreto-Ley 6673/63 actualizado</a>.</p>
+
+          <h3 id="secreto-knowhow">Secreto comercial, industrial y know-how</h3>
+          <p>El <strong>secreto industrial</strong> puede consistir en fórmulas, métodos, procesos o planos; el <strong>comercial</strong>, en información de clientes, ventas u organización. El <strong>know-how</strong> es conocimiento práctico acumulado para desarrollar una actividad, transferible mediante contratos, licencias o franquicias. Su protección como secreto depende de conservar la confidencialidad.</p>
+          <p>La <strong>Ley 24.766</strong> exige información no divulgada, bajo control legítimo, con valor comercial por ser secreta y sometida a medidas razonables de protección. No necesita ser desconocida por absolutamente todos: no debe ser generalmente conocida ni fácilmente accesible en los círculos donde se utiliza.</p>
+          <div class="formula">Secreto protegible = reserva + control legítimo + valor comercial + medidas razonables.</div>
+          <p>Son medidas razonables limitar accesos, identificar documentación confidencial, guardar soportes de forma segura y pactar obligaciones de reserva. El acceso de empleados o colaboradores sujetos a confidencialidad no equivale a divulgación pública.</p>
+          <p>La tutela impide adquisición, uso o divulgación contrarios a prácticas comerciales honestas: incumplimiento contractual, abuso de confianza, inducción a incumplir y recepción de información cuyo origen ilícito se conoce o se ignora por negligencia grave. Permite pedir cese, medidas cautelares y reparación. Quienes acceden por su relación laboral, profesional o comercial deben preservar la información advertida como confidencial.</p>
+          <div class="ejemplo"><strong>Ferrari–McLaren:</strong> el material usa la transferencia de documentación técnica reservada entre equipos para ilustrar apropiación indebida. La cuestión central es cómo se obtuvo y utilizó la información, no si había una patente.</div>
+          <p><strong>Patente y secreto:</strong> la primera exige divulgación y ofrece exclusividad temporal; el segundo conserva valor mientras se mantengan sus condiciones, sin dar el mismo monopolio frente a un desarrollo independiente. La cátedra también critica que ciertos artículos de la ley confundan información y soporte o equiparen divulgación parcial con pérdida total del secreto: son observaciones doctrinarias del material.</p>
+
+          <h3 id="designaciones">Designaciones de actividades, marcas y razón social</h3>
+          <div class="table-wrap"><table><thead><tr><th>Figura</th><th>Qué identifica</th><th>Cómo se adquiere / extingue</th></tr></thead><tbody>
+            <tr><td><strong>Marca</strong></td><td>Productos o servicios.</td><td>Como regla, registro; plazo y renovación propios.</td></tr>
+            <tr><td><strong>Designación</strong></td><td>Una actividad y quien la desarrolla ante su público, tenga o no fines de lucro.</td><td>Uso en el ramo correspondiente; cesa con la actividad designada.</td></tr>
+            <tr><td><strong>Razón o denominación social</strong></td><td>La sociedad en su vida jurídica.</td><td>Constitución e inscripción societaria; se vincula con su existencia jurídica.</td></tr>
+          </tbody></table></div>
+          <p>La designación puede ser verbal, gráfica o combinar signos. Debe diferenciarse de las preexistentes en el mismo ramo: no se protege cualquier uso del nombre en cualquier actividad. El uso estacional continuado —como una feria anual— no equivale necesariamente a abandono.</p>
+          <div class="ejemplo"><strong>Aclaración para estudiar:</strong> la diapositiva 49 menciona un año de uso para adquirirla. El <strong>art. 28</strong> establece adquisición <strong>por el uso</strong>; el año del <strong>art. 29</strong> es el plazo de prescripción de la acción de oposición desde el uso público y ostensible o su conocimiento. No son el mismo requisito. <a href="https://www.argentina.gob.ar/normativa/nacional/18803/actualizacion">Ley 22.362, arts. 27 a 30</a>.</div>
+          <p>La defensa busca evitar confusión mediante cese y medidas cautelares sobre carteles, papelería y otros elementos. La falsificación, imitación fraudulenta y uso no autorizado tienen las consecuencias previstas por la ley.</p>
+        </section>
+
+        <section id="datos-personales">
+          <h2>18. Unidad VII — Protección de datos personales</h2>
+          <p>La <strong>autodeterminación informativa</strong> permite conocer y controlar qué información personal se trata, con qué finalidad y quién puede usarla. La protección alcanza honor e intimidad, pero también acceso, exactitud y confidencialidad: un dato verdadero puede usarse de manera incompatible con su finalidad.</p>
+          <p>Marco de la unidad: Constitución —arts. 18, 19, 43 y tratados de derechos humanos—, <strong>Ley 25.326</strong>, Decreto 1558/2001, Convenio 108 aprobado por Ley 27.483, Código Civil y Comercial y delitos contra secretos y privacidad. La autoridad de aplicación es la <strong>AAIP</strong>.</p>
+          <h3 id="principios-datos">Conceptos, licitud y calidad</h3>
+          <ul>
+            <li><strong>Dato personal:</strong> información sobre una persona determinada o determinable; puede ser texto, imagen o sonido. La ley también alcanza, cuando corresponde, datos de personas jurídicas.</li>
+            <li><strong>Tratamiento:</strong> recolección, almacenamiento, consulta, modificación, comunicación, bloqueo o eliminación, entre otras operaciones.</li>
+            <li><strong>Disociación:</strong> impide asociar la información a una persona determinada o determinable; quitar el nombre no basta si se puede reidentificar.</li>
+            <li><strong>Ámbito:</strong> bancos públicos y privados comprendidos por la ley, incluidos los que exceden el uso exclusivamente personal. Se protege el secreto de las fuentes periodísticas; no debe deducirse una exención universal para cualquier base llamada “histórica” o “de investigación”.</li>
+          </ul>
+          <p>Los datos deben ser <strong>ciertos, pertinentes, adecuados, no excesivos y actualizados</strong>. La recolección debe ser leal; el uso debe respetar la finalidad; debe facilitarse el acceso y destruirse lo que deja de ser necesario, atendiendo a las obligaciones legales de conservación.</p>
+          <h3 id="consentimiento-datos">Consentimiento, información y circulación</h3>
+          <p>Como regla, el consentimiento debe ser <strong>libre, expreso e informado</strong>, destacado si integra otras declaraciones y revocable sin efectos retroactivos. Antes de recabar datos se informa finalidad, destinatarios, responsable de la base, obligatoriedad de las respuestas, consecuencias y derechos del titular.</p>
+          <p>El art. 5 contempla excepciones: fuentes de acceso público irrestricto; funciones estatales u obligación legal; listados limitados a los datos nominativos previstos; datos necesarios para una relación contractual, científica o profesional; y ciertas operaciones financieras sujetas a su régimen. La excepción al consentimiento no elimina los demás deberes de calidad, finalidad y seguridad.</p>
+          <div class="grid-2"><div class="compare"><h4>Cesión · art. 11</h4><p>Comunicación a otro responsable para fines relacionados con el interés legítimo de cedente y cesionario. Requiere información y consentimiento salvo excepción legal; ambos responden por las obligaciones aplicables.</p></div><div class="compare"><h4>Transferencia internacional · art. 12</h4><p>Exige considerar el nivel de protección del destino. La unidad estudia excepciones legales y garantías, como contratos modelo o reglas de un grupo empresario. Usar cloud en otro país también plantea esta cuestión.</p></div></div>
+          <p>Entre las excepciones de transferencia explicadas están colaboración judicial, ciertos intercambios médicos, operaciones bancarias/bursátiles, tratados y cooperación contra delitos graves. No debe usarse la lista histórica de países de las diapositivas como una lista vigente automática.</p>
+          <p><strong>Responsable de la base:</strong> debe cumplir inscripción cuando corresponda, licitud, finalidad, información, consentimiento o excepción, seguridad técnica y organizativa y secreto profesional. La confidencialidad continúa después de finalizar la relación. Pueden coexistir responsabilidad civil, sanciones administrativas y responsabilidad penal —por ejemplo, art. 157 bis—.</p>
+
+          <h3 id="derechos-habeas-data">Derechos del titular y hábeas data</h3>
+          <div class="table-wrap"><table><thead><tr><th>Derecho</th><th>Objeto</th><th>Plazo o condición</th></tr></thead><tbody>
+            <tr><td><strong>Información</strong></td><td>Conocer bases registradas, finalidades y responsables.</td><td>Consulta pública y gratuita ante el organismo de control.</td></tr>
+            <tr><td><strong>Acceso</strong></td><td>Obtener los propios datos de forma clara y completa, acreditando identidad.</td><td>Respuesta en <strong>10 días corridos</strong>. Gratuito cada 6 meses, salvo interés legítimo.</td></tr>
+            <tr><td><strong>Rectificación, actualización o supresión</strong></td><td>Corregir datos falsos, incompletos, desactualizados o indebidamente conservados.</td><td><strong>5 días hábiles</strong>. La supresión puede ceder ante derechos de terceros u obligación legal de conservar.</td></tr>
+            <tr><td><strong>Confidencialidad</strong></td><td>Restringir comunicación de datos que requieren reserva.</td><td>Se articula mediante el reclamo y, cuando corresponde, la vía judicial.</td></tr>
+          </tbody></table></div>
+          <p>El <strong>hábeas data</strong> tutela judicialmente estos derechos. Es <strong>informativo</strong> si busca conocer datos, finalidad y origen; <strong>rectificador</strong> si corrige o actualiza; y <strong>de preservación</strong> si procura suprimir o reservar información. No permite revelar fuentes periodísticas protegidas.</p>
+          <ol>
+            <li>Reclamar previamente al responsable y conservar constancia. La falta de respuesta dentro del plazo o una respuesta insuficiente habilitan la acción.</li>
+            <li>Identificar la base y explicar por qué se pide acceso, corrección, supresión o confidencialidad.</li>
+            <li>El juez puede disponer anotación de que el dato está controvertido o bloqueo provisional cuando corresponda.</li>
+            <li>La sentencia fija la medida y su cumplimiento; la reparación de daños puede reclamarse por la vía pertinente.</li>
+          </ol>
+          <p>Puede accionar la persona afectada o su representación; para personas jurídicas, el representante legal. La ley contempla sucesores y la intervención coadyuvante del Defensor del Pueblo. La competencia puede elegirse entre los domicilios previstos y el lugar donde se manifiesta el hecho; es federal en los supuestos de bases públicas nacionales o redes interjurisdiccionales del art. 36. El trámite contempla informe de la base en hasta cinco días hábiles —ampliable judicialmente— y eventual ampliación de la demanda.</p>
+          <p>Referencia de consulta: <a href="https://www.argentina.gob.ar/normativa/nacional/ley-25326-64790/actualizacion">Ley 25.326, derechos del titular y acción de protección</a>.</p>
+
+          <h3 id="categorias-datos">Categorías y regímenes especiales</h3>
+          <div class="table-wrap"><table><thead><tr><th>Categoría</th><th>Regla de estudio</th></tr></thead><tbody>
+            <tr><td><strong>Sensibles</strong></td><td>Origen racial/étnico, opiniones políticas, creencias, afiliación sindical, salud y vida sexual. Nadie puede ser obligado a darlos; su tratamiento tiene restricciones especiales del art. 7. El consentimiento no habilita por sí solo cualquier archivo sensible.</td></tr>
+            <tr><td><strong>Miembros y antecedentes</strong></td><td>Entidades religiosas, políticas y sindicales pueden registrar miembros dentro del régimen legal. Antecedentes penales y contravencionales: autoridades públicas competentes.</td></tr>
+            <tr><td><strong>Salud</strong></td><td>Profesionales y establecimientos pueden tratar datos de sus pacientes respetando secreto profesional. La historia clínica informatizada debe preservar integridad, autenticidad y recuperabilidad; el paciente puede solicitar copia, con el plazo de 48 horas explicado en la Ley 26.529.</td></tr>
+            <tr><td><strong>Biométricos</strong></td><td>Rasgos físicos, fisiológicos o conductuales tratados para identificación única. Según el criterio AAIP citado en clase, son sensibles si revelan información adicional potencialmente discriminatoria, como salud u origen étnico.</td></tr>
+            <tr><td><strong>Genéticos</strong></td><td>Información especialmente reservada, sujeta a finalidad y acceso restringido; no es una base comercial de libre consulta.</td></tr>
+            <tr><td><strong>Encuestas e investigación</strong></td><td>La excepción depende de que la información no sea atribuible a una persona. Importa la disociación efectiva, no solo la etiqueta “estadística”.</td></tr>
+            <tr><td><strong>Policiales e inteligencia</strong></td><td>Sin consentimiento solo dentro de las misiones legales y con datos necesarios. Deben cancelarse cuando dejan de ser necesarios para la finalidad que justificó su conservación.</td></tr>
+          </tbody></table></div>
+          <div class="ejemplo"><strong>Actualización del ejemplo genético:</strong> las diapositivas describen el alcance original de la Ley 26.879, centrado en delitos sexuales. La Ley 27.759 amplió el régimen al <strong>Registro Nacional de Datos Genéticos Vinculados con la Investigación Criminal</strong>. Se mantiene la protección de datos sensibles y la finalidad identificatoria legal. <a href="https://www.argentina.gob.ar/normativa/nacional/ley-26879-217689/actualizacion">Ley 26.879 actualizada</a>.</div>
+
+          <h3 id="olvido-crediticio">Información crediticia y derecho al olvido</h3>
+          <p>El art. 26 permite tratar datos patrimoniales relevantes para evaluar solvencia y cumplimiento de obligaciones bajo sus condiciones. El material destaca <strong>cinco años</strong> para información adversa significativa y <strong>dos años</strong> cuando la obligación se cancela o extingue, consignando esa circunstancia. El cómputo exige considerar el dato relevante y la reglamentación; no es un permiso para conservar cualquier información indefinidamente.</p>
+          <p>Este límite específico no equivale a un derecho general a borrar toda noticia antigua de Internet. En <strong>Denegri c/ Google</strong>, las diapositivas explican la decisión de Cámara de 2020 que admitió parcialmente desindexar ciertos contenidos.</p>
+          <div class="ejemplo"><strong>Evolución del caso:</strong> la <strong>Corte Suprema rechazó la demanda en 2022</strong> (Fallos 345:482), al considerar insuficiente el fundamento para restringir información veraz de interés público. Diferenciar la sentencia de Cámara estudiada de la decisión posterior evita aprender el caso con un desenlace incompleto. <a href="https://sj.csjn.gov.ar/homeSJ/notas/nota/189/documento">CSJN: jurisprudencia sobre derecho al olvido</a>.</div>
+
+          <h3 id="cloud-datos">Cloud computing y tratamiento por encargo</h3>
+          <p>Hay tres roles diferentes: <strong>titular del dato</strong> —persona a la que refiere—, <strong>responsable</strong> —determina el tratamiento— y <strong>encargado</strong> —lo presta por cuenta del responsable—. Un proveedor cloud no pasa a ser dueño de los datos por alojarlos.</p>
+          <div class="grid-2"><div class="compare"><h4>Modalidades</h4><p><strong>SaaS:</strong> uso de aplicaciones del proveedor. <strong>PaaS:</strong> plataforma para desarrollar y desplegar aplicaciones. <strong>IaaS:</strong> infraestructura de cómputo, almacenamiento y redes.</p></div><div class="compare"><h4>Ventajas y riesgos</h4><p>Menor inversión inicial, escalabilidad y acceso remoto; a cambio, evaluar conectividad, dependencia, recuperación, seguridad, jurisdicción y ley aplicable.</p></div></div>
+          <p>El contrato debe fijar finalidad, instrucciones, seguridad, reserva y condiciones de circulación. El encargado no puede reutilizar los datos para otro fin ni cederlos por su cuenta. Al concluir la prestación debe destruirlos, salvo autorización expresa y previsión razonable de nuevos encargos, con conservación segura por hasta dos años según el art. 25. Si interviene otro país, también se analiza la transferencia internacional.</p>
+          <h3 id="marketing-datos">Cookies, píxeles y marketing de comportamiento</h3>
+          <p>Cookies y tecnologías de seguimiento pueden registrar actividad y contribuir a formar perfiles de consumo; los píxeles permiten transmitir eventos desde una página. Ese tratamiento puede involucrar recolección, inferencias y cesión a terceros.</p>
+          <p><strong>Opt-in:</strong> aceptación previa. <strong>Opt-out:</strong> posibilidad de oponerse o retirarse. El art. 27, estudiado en clase como opt-out publicitario, permite ciertos tratamientos promocionales si los datos provienen de documentos públicos, del titular o de su consentimiento, y reconoce el retiro o bloqueo.</p>
+          <div class="formula">El derecho a darse de baja no autoriza a recolectar o ceder cualquier dato sin base legal.</div>
+        </section>
+
+        <section id="derecho-imagen">
+          <h2>19. Unidad VII — Derecho a la imagen y a la voz</h2>
+          <p>Es un derecho personalísimo <strong>autónomo</strong>: protege el control sobre la captación, reproducción y difusión de la propia imagen o voz, aunque no se pruebe una lesión adicional al honor o a la intimidad. Incluye fotografías, filmaciones, dibujos u otras representaciones reconocibles.</p>
+          <div class="grid-2"><div class="compare"><h4>Faz positiva</h4><p>Usar la propia imagen o autorizar a terceros, incluso para una explotación económica delimitada.</p></div><div class="compare"><h4>Faz negativa</h4><p>Oponerse a captaciones o usos no consentidos que no estén cubiertos por una excepción.</p></div></div>
+          <h3 id="imagen-consentimiento">Tres vías de protección y consentimiento</h3>
+          <ul>
+            <li><strong>Marcas · Ley 22.362, art. 3 inc. h:</strong> nombre, seudónimo o retrato no pueden registrarse como marca sin la autorización exigida.</li>
+            <li><strong>Ley 11.723, arts. 31, 33 y 35:</strong> regula la puesta en el comercio del retrato y cuestiones de consentimiento, revocación y fallecimiento.</li>
+            <li><strong>CCyC, arts. 53 y 55:</strong> incluye captación o reproducción de imagen y voz por cualquier medio; no exige finalidad lucrativa. El art. 1770 protege frente a intromisiones arbitrarias en la vida privada.</li>
+          </ul>
+          <p>El consentimiento <strong>no se presume</strong>, se interpreta restrictivamente y es revocable. Una autorización para una campaña no habilita cualquier medio, finalidad o duración: el acuerdo debe precisar usos, soportes, territorio, plazo y obligaciones. Los efectos indemnizatorios de revocar dependen del régimen y del caso.</p>
+          <h3 id="imagen-excepciones">Excepciones, fallecimiento y redes sociales</h3>
+          <p>El art. 53 contempla participación en actos públicos; interés científico, cultural o educacional prioritario con medidas para evitar daño innecesario; y ejercicio regular del derecho de informar sobre acontecimientos de interés general. Deben analizarse finalidad y contexto: estar en un espacio público no habilita cualquier reutilización publicitaria.</p>
+          <p>En personas fallecidas pueden consentir herederos o quien haya sido designado por disposición de última voluntad; ante desacuerdo entre herederos del mismo grado decide el juez. Pasados <strong>20 años desde la muerte</strong>, la reproducción <strong>no ofensiva</strong> es libre. Referencia: <a href="https://www.argentina.gob.ar/normativa/nacional/ley-26994-235975/actualizacion">Código Civil y Comercial, arts. 53 y 55</a>.</p>
+          <div class="ejemplo"><strong>Foto publicada en Instagram:</strong> permitir que otros vean el perfil no equivale a autorizar a una empresa a usar esa foto en un anuncio. Tampoco el consentimiento del fotógrafo reemplaza el de la persona retratada: Derecho de Autor y derecho a la imagen protegen intereses diferentes.</div>
+          <p>Para resolver un caso: identificar a la persona reconocible, qué uso se hizo, si existe consentimiento específico y si corresponde una excepción. Según el daño acreditado pueden discutirse cese, prevención y reparación moral o patrimonial; la protección no está reservada a personas famosas.</p>
+          <h3 id="repaso-unidades-nuevas">Repaso de las unidades incorporadas</h3>
+          <details><summary>¿Tener un dominio equivale a registrar una marca?</summary><p>No. La exclusividad técnica del dominio y la protección jurídica de una marca tienen objetos y alcances distintos; un dominio puede ser impugnado por registro abusivo.</p></details>
+          <details><summary>¿Qué tres requisitos debe acreditar el reclamante en UDRP?</summary><p>Similitud confundible con una marca protegida, ausencia de derechos o interés legítimo del titular y registro y uso de mala fe.</p></details>
+          <details><summary>¿Una forma que mejora el agarre es diseño industrial?</summary><p>Si el rasgo responde a la función técnica, no se protege como ornamentación por ese solo hecho. Debe distinguirse del modelo de utilidad.</p></details>
+          <details><summary>¿Alcanza con llamar “secreta” a una información?</summary><p>No: se necesitan reserva efectiva, control legítimo, valor comercial por ser secreta y medidas razonables de protección.</p></details>
+          <details><summary>¿Cuáles son los dos plazos básicos sobre datos personales?</summary><p>Acceso: 10 días corridos. Rectificación, actualización o supresión: 5 días hábiles. No intercambiar días corridos con hábiles.</p></details>
+          <details><summary>¿Se puede cambiar de finalidad porque se obtuvo consentimiento?</summary><p>No hay un permiso ilimitado: el tratamiento debe respetar finalidad, información, calidad y las restantes condiciones legales.</p></details>
+          <details><summary>¿El olvido crediticio y Denegri son lo mismo?</summary><p>No. El primero tiene un régimen específico de conservación de información patrimonial. Denegri enfrenta la desindexación de noticias con libertad de expresión e interés público; la Corte rechazó esa demanda.</p></details>
+          <details><summary>¿Puede un proveedor cloud vender los datos que aloja por encargo?</summary><p>No puede apropiarse de una finalidad propia ajena al contrato ni cederlos por su cuenta; debe respetar las instrucciones y obligaciones del tratamiento.</p></details>
+          <details><summary>¿Una foto en un perfil público queda libre para publicidad?</summary><p>No. Publicarla para que sea vista no autoriza cualquier explotación por terceros. Debe analizarse el consentimiento para ese uso.</p></details>
+          <p>Fuentes incorporadas el 03/10/2026: “Unidad IV — Nombres de Dominio”, “Unidad VI — Otras Formas de Protección”, “Unidad VII — Datos Personales” (partes 1 y 2) y “Unidad VII — Derecho a la Imagen”. Las aclaraciones normativas y jurisprudenciales enlazadas distinguen el material de clase de sus correcciones o actualizaciones.</p>
+        </section>
+
+        <!-- 20 -->
         <section id="ideas">
-          <h2>16. Ideas clave para recordar</h2>
+          <h2>20. Ideas clave para recordar</h2>
           <ul class="key-list">
             <li>El <strong>Estado</strong> se compone de población, territorio, gobierno, derecho y poder.</li>
             <li>Formas de Estado: <strong>unitario</strong>, <strong>federal</strong>, <strong>confederación</strong> (con derechos de <strong>secesión</strong> y <strong>nulificación</strong>).</li>
@@ -1456,12 +1679,16 @@
             <li>La confusión marcaria puede ser directa o indirecta y se estudia en los planos visual, fonético y conceptual desde la percepción del consumidor.</li>
             <li>Patente: <strong>novedad absoluta + actividad inventiva + aplicación industrial</strong>; las reivindicaciones delimitan el monopolio y el plazo es de 20 años desde la solicitud.</li>
             <li>Modelo de utilidad: mejora funcional de un objeto conocido, sin exigencia de actividad inventiva; dura <strong>10 años</strong>.</li>
-          </ul>
+          <li>Dominio ≠ marca; en UDRP se prueban similitud, falta de interés legítimo y mala fe de registro y uso.</li>
+            <li>Diseño industrial = ornamentación; modelo de utilidad = mejora funcional; secreto = reserva y medidas de protección.</li>
+            <li>Datos personales: acceso en <strong>10 días corridos</strong>; rectificación, actualización o supresión en <strong>5 días hábiles</strong>.</li>
+            <li>La imagen y la voz requieren consentimiento o una excepción aplicable; un perfil público no autoriza cualquier reutilización.</li>
+            </ul>
         </section>
 
-        <!-- 17 -->
+        <!-- 21 -->
         <section id="preguntas-parcial">
-          <h2>17. Preguntas de parcial — Temas 1, 2 y 3</h2>
+          <h2>21. Preguntas de parcial — Temas 1, 2 y 3</h2>
           <p>Las 57 consignas de los tres temas están organizadas como acordeones. Abrí una pregunta para ver sus opciones y la respuesta razonada; dentro de cada tema se mantiene abierta una sola a la vez.</p>
 
           <h3 id="preguntas-tema-1">Tema 1</h3>
@@ -1536,7 +1763,7 @@
 
         <footer>
           Resumen elaborado a partir de “Clase 1 Presentación – Informática y Derecho”; las presentaciones de las Unidades I, II y III; los materiales “Unidad III — Derecho de Autor” (partes 1 y 2), “Derecho de Autor en Internet 2026” y “Bases de Datos 2026”; “Unidad IV — Derecho de Marcas” (materiales 1 y 2); “Unidad V — Patentes y Modelos de Utilidad”; y los modelos de parcial Tema 1, Tema 2 y Tema 3 (UADE).
-          Para estudiar offline, abrí este archivo en el navegador.
+          Actualización del 03/10/2026: Nombres de Dominio, Otras Formas de Protección, Datos Personales (partes 1 y 2) y Derecho a la Imagen. Las fuentes oficiales enlazadas aclaran diferencias normativas y jurisprudenciales del material. Para estudiar offline, abrí este archivo en el navegador.
         </footer>
       </div>
     </main>
