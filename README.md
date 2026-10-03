@@ -2,8 +2,8 @@
 
 Sitio estático con resúmenes de estudio de UADE:
 
-- Negocios Tecnológicos: clases 1 a 6, 8 y 9; casos y práctica de parcial.
-- Derecho Informático: unidades I a VII, preguntas de parcial y repaso.
+- Negocios Tecnológicos: clases 1 a 6, 8 y 9; clases 8 y 9 separadas, comparación de océano rojo y azul, casos y práctica de parcial.
+- Derecho Informático: unidades I a VII, preguntas de repaso y primer parcial de cinco consignas con respuestas orientativas y fuentes.
 - Tecnología e Innovación: clases 1 a 4, 7 y 8; síntesis del recorrido 1 a 8 y TPO.
 
 Abrir `index.html` para acceder a las tres materias. Los materiales fuente (PDF, PPTX y DOCX) se mantienen fuera del repositorio.

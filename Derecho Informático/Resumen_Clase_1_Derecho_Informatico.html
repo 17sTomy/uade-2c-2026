@@ -607,6 +607,19 @@
               <li><a href="#preguntas-tema-3">Tema 3</a></li>
             </ul>
           </li>
+          <li class="toc-group">
+            <div class="toc-row">
+              <a href="#primer-parcial">22. Primer parcial · 100 puntos</a>
+              <button type="button" class="acc-btn" aria-expanded="false" aria-label="Abrir subtemas"></button>
+            </div>
+            <ul class="toc-subs">
+              <li><a href="#parcial-1-licencias">1. Software libre y licencias</a></li>
+              <li><a href="#parcial-1-martina">2. Caso Martina</a></li>
+              <li><a href="#parcial-1-nubix">3. Caso NUBIX</a></li>
+              <li><a href="#parcial-1-informatica">4. Informática y Derecho</a></li>
+              <li><a href="#parcial-1-bases">5. Bases de datos</a></li>
+            </ul>
+          </li>
         </ul>
       </nav>
     </aside>
@@ -629,6 +642,7 @@
             <span class="chip">Unidad VI · Otras protecciones</span>
             <span class="chip">Unidad VII · Datos e imagen</span>
             <span class="chip">57 preguntas de parcial + repaso nuevo</span>
+            <span class="chip">Primer parcial · 5 consignas de 20 puntos</span>
           </div>
         </header>
 
@@ -1761,9 +1775,93 @@
           </div>
         </section>
 
+        <section id="primer-parcial">
+          <h2>22. Primer parcial — 100 puntos</h2>
+          <p class="lead">Cinco consignas de 20 puntos cada una, aportadas para practicar el primer parcial. Resolvelas antes de desplegar las respuestas orientativas: explican el razonamiento y sus fundamentos, y no constituyen una corrección oficial de la cátedra.</p>
+
+          <h3 id="parcial-1-licencias">1) V/F — 20 puntos</h3>
+          <p>“El software libre carece de titular y, por ser libre, necesariamente debe distribuirse de manera gratuita. Además, quien modifica un programa licenciado bajo Creative Commons puede redistribuir la obra derivada bajo una licencia propietaria, sin conservar las libertades de los usuarios.”</p>
+          <p><strong>Indique si la afirmación es verdadera o falsa y justifique.</strong></p>
+          <div class="quiz">
+            <details>
+              <summary>Ver respuesta orientativa · Software libre y licencias</summary>
+              <p class="respuesta"><strong>Falsa.</strong> El software libre puede tener autor y titular de derechos: una licencia otorga permisos a los usuarios, sin implicar abandono de la titularidad. “Libre” describe libertades, no el precio; puede distribuirse cobrando.</p>
+              <p>Sus cuatro libertades son ejecutar el programa para cualquier propósito; estudiar cómo funciona y modificarlo; redistribuir copias; y distribuir versiones modificadas. El acceso al código fuente es necesario para estudiar y modificar.</p>
+              <p><strong>La segunda parte depende de la licencia concreta.</strong> Creative Commons es una familia de licencias. Con <strong>CompartirIgual (SA)</strong>, la adaptación compartida debe mantener una licencia igual o compatible; no puede cerrarse suprimiendo esos permisos. Con <strong>SinDerivadas (ND)</strong>, no se autoriza compartir la adaptación. Con <strong>CC BY</strong>, pueden establecerse otras condiciones para los aportes propios, respetando atribución y permisos sobre el material original. Si hay <strong>NoComercial (NC)</strong>, tampoco se habilita la explotación comercial sin permiso adicional.</p>
+              <p><strong>Conclusión:</strong> no se puede afirmar una facultad general de redistribuir como propietario sin identificar la licencia. El copyleft exige preservar libertades al redistribuir; no toda licencia libre es copyleft. Además, Creative Commons desaconseja sus licencias para el código de software y recomienda licencias diseñadas para él.</p>
+            </details>
+          </div>
+          <p class="small">Para fundamentar: <a href="https://www.gnu.org/philosophy/free-sw.en.html">GNU: definición de software libre</a>, <a href="https://creativecommons.org/faq/">Creative Commons: licencias y software</a> y <a href="https://wiki.creativecommons.org/wiki/ShareAlike_interpretation">alcance de CompartirIgual</a>. Repasar <a href="#autor-internet">Autor en Internet</a>.</p>
+
+          <h3 id="parcial-1-martina">2) Minicaso práctico — 20 puntos</h3>
+          <p>Una empresa contrata a Martina como desarrolladora para crear un sistema de gestión. El programa se produce durante la relación laboral y dentro de sus funciones; el contrato no contiene una cláusula sobre titularidad. Martina lo registra a su nombre y pretende licenciarlo a un competidor.</p>
+          <p><strong>¿A quién corresponde, en principio, la titularidad patrimonial y por qué?</strong></p>
+          <div class="quiz">
+            <details>
+              <summary>Ver respuesta orientativa · Titularidad del software laboral</summary>
+              <p class="respuesta"><strong>En principio, corresponde a la empresa empleadora.</strong> El art. 4, inc. d, de la Ley 11.723 atribuye la titularidad al empleador cuando sus dependientes fueron contratados para desarrollar software y lo produjeron dentro de sus funciones, salvo pacto en contrario.</p>
+              <p>En el caso se cumplen esos presupuestos y no hay acuerdo que cambie la regla. Registrar el programa a su nombre no desplaza la titularidad que corresponde a la empresa; Martina no puede licenciarlo al competidor por su sola decisión. Debe distinguirse su intervención como desarrolladora de la titularidad de los derechos patrimoniales de explotación.</p>
+            </details>
+          </div>
+          <p class="small">Fundamento: <a href="https://www.argentina.gob.ar/normativa/nacional/42755/actualizacion">Ley 11.723, art. 4, inc. d</a>. Repasar <a href="#tipos-autoria">autoría y titularidad</a>.</p>
+
+          <h3 id="parcial-1-nubix">3) Minicaso práctico — 20 puntos</h3>
+          <p>Una ley autoriza a un ente regulador a resolver reclamos de usuarios por incumplimientos del servicio. NUBIX S.A. tiene registrada la marca NUBIX para servicios de software. Un tercero comienza a ofrecer los mismos servicios con el signo “NUBIX” y utiliza el dominio nubix.com.ar.</p>
+          <p><strong>¿Qué principio marcario resulta central y qué puede exigir la titular?</strong></p>
+          <div class="quiz">
+            <details>
+              <summary>Ver respuesta orientativa · Exclusividad, especialidad y dominio</summary>
+              <p class="respuesta"><strong>El principio central es la exclusividad de uso de la marca registrada.</strong> En el sistema atributivo argentino, el registro confiere propiedad y uso exclusivo. La <strong>especialidad</strong> delimita la protección por productos o servicios; aquí se usa el mismo signo para los mismos servicios, con riesgo de confusión sobre su origen empresarial.</p>
+              <p>NUBIX S.A. puede exigir el <strong>cese del uso no autorizado</strong> del signo y promover las acciones correspondientes; según los presupuestos del caso, solicitar medidas cautelares y reparación de los daños acreditados.</p>
+              <p>El dominio no autoriza a infringir una marca. La titular puede iniciar una <strong>disputa ante NIC Argentina</strong> para reclamar su titularidad, acreditando mejor derecho o interés legítimo, y recurrir a la vía judicial pertinente. La transferencia no es automática por tener la marca: debe obtenerse por el procedimiento aplicable.</p>
+              <p>La referencia inicial al ente regulador no cambia el principio marcario ni permite presumir que ese ente tenga competencia para resolver la disputa de marca o dominio.</p>
+            </details>
+          </div>
+          <p class="small">Fundamentos: <a href="https://www.argentina.gob.ar/normativa/nacional/18803/actualizacion">Ley 22.362, arts. 4 y 35</a> y <a href="https://nic.ar/es/node/240">NIC Argentina: disputa de dominios</a>. Repasar <a href="#principios-marcas">principios marcarios</a> y <a href="#nic-argentina">dominios .ar</a>.</p>
+
+          <h3 id="parcial-1-informatica">4) Pregunta teórica — 20 puntos</h3>
+          <p><strong>Distinga informática jurídica y derecho informático. Explique qué lugar ocupa la informática en cada concepto y mencione dos ejemplos de materias o aplicaciones correspondientes a cada uno.</strong></p>
+          <div class="quiz">
+            <details>
+              <summary>Ver respuesta orientativa · Herramienta y objeto de regulación</summary>
+              <p class="respuesta"><strong>Informática jurídica:</strong> aplica herramientas informáticas al trabajo jurídico. La informática ocupa el lugar de <strong>instrumento al servicio del Derecho</strong>, para organizar, recuperar o procesar información y asistir tareas profesionales.</p>
+              <ol>
+                <li><strong>Documental:</strong> una base de legislación y jurisprudencia, como SAIJ, para buscar normas y fallos.</li>
+                <li><strong>De gestión:</strong> un sistema de expedientes y agenda que controla plazos y trámites de un juzgado o estudio jurídico.</li>
+              </ol>
+              <p><strong>Derecho informático:</strong> comprende principios y normas que regulan las consecuencias jurídicas de la informática y las TIC. La informática y sus efectos ocupan el lugar de <strong>objeto de regulación</strong>.</p>
+              <ol>
+                <li><strong>Protección del software:</strong> autoría, titularidad y licencias de programas.</li>
+                <li><strong>Protección de datos personales:</strong> condiciones para recolectar, utilizar y comunicar información sobre personas.</li>
+              </ol>
+              <p><strong>Clave:</strong> utilizar tecnología para trabajar con el Derecho es informática jurídica; establecer derechos y obligaciones sobre esa tecnología y sus efectos es derecho informático.</p>
+            </details>
+          </div>
+          <p class="small">Repasar <a href="#inf-juridica">Informática Jurídica</a> y <a href="#der-informatico">Derecho Informático</a>.</p>
+
+          <h3 id="parcial-1-bases">5) Pregunta teórica — 20 puntos</h3>
+          <p><strong>Explique la protección jurídica de las bases de datos por Derecho de Autor, requisito y mecanismos complementarios de protección.</strong></p>
+          <div class="quiz">
+            <details>
+              <summary>Ver respuesta orientativa · Originalidad y protección complementaria</summary>
+              <p class="respuesta">El Derecho de Autor protege una base de datos cuando la <strong>selección o disposición de sus contenidos constituye una creación intelectual original</strong>. La Ley 11.723 incluye las compilaciones de datos; el art. 5 del Tratado OMPI precisa ese criterio de protección.</p>
+              <p>La tutela recae en esa selección o estructura, <strong>no en los datos o hechos aislados</strong>. La inversión de dinero, esfuerzo o tiempo no sustituye la originalidad. Las obras incluidas —por ejemplo, fotografías o textos— pueden tener derechos propios, independientes de la compilación.</p>
+              <p><strong>Mecanismos complementarios:</strong></p>
+              <ol>
+                <li><strong>Contratos y licencias:</strong> delimitar accesos, usos, redistribución y extracción de datos, con los límites del ordenamiento.</li>
+                <li><strong>Medidas técnicas y prueba:</strong> autenticación, permisos, cifrado, límites de descarga y trazabilidad para prevenir o acreditar apropiaciones.</li>
+                <li><strong>Confidencialidad:</strong> proteger información secreta con valor comercial, tomando medidas razonables para mantenerla reservada; por ejemplo, acuerdos de confidencialidad y acceso restringido.</li>
+                <li><strong>Competencia desleal y tutela supletoria:</strong> frente a aprovechamientos ilegítimos, cuando concurran los requisitos de cada acción; pueden considerarse también las reglas sobre enriquecimiento sin causa.</li>
+              </ol>
+              <p>El material compara este esquema con el derecho <em>sui generis</em> europeo ligado a la inversión sustancial; no debe trasladarse automáticamente al régimen argentino. Si la base contiene datos personales, además debe cumplirse su normativa: proteger la base no habilita cualquier tratamiento de sus contenidos.</p>
+            </details>
+          </div>
+          <p class="small">Fundamentos: <a href="https://www.argentina.gob.ar/normativa/nacional/42755/actualizacion">Ley 11.723, art. 1</a>, <a href="https://www.wipo.int/edocs/pubdocs/en/wipo_pub_226.pdf">Tratado OMPI, art. 5</a> y <a href="https://www.argentina.gob.ar/normativa/nacional/ley-24766-41094/texto">Ley 24.766, art. 1</a>. Repasar <a href="#bases-datos">bases de datos</a> y <a href="#proteccion-bases">capas complementarias</a>.</p>
+        </section>
+
         <footer>
           Resumen elaborado a partir de “Clase 1 Presentación – Informática y Derecho”; las presentaciones de las Unidades I, II y III; los materiales “Unidad III — Derecho de Autor” (partes 1 y 2), “Derecho de Autor en Internet 2026” y “Bases de Datos 2026”; “Unidad IV — Derecho de Marcas” (materiales 1 y 2); “Unidad V — Patentes y Modelos de Utilidad”; y los modelos de parcial Tema 1, Tema 2 y Tema 3 (UADE).
-          Actualización del 03/10/2026: Nombres de Dominio, Otras Formas de Protección, Datos Personales (partes 1 y 2) y Derecho a la Imagen. Las fuentes oficiales enlazadas aclaran diferencias normativas y jurisprudenciales del material. Para estudiar offline, abrí este archivo en el navegador.
+          Actualización del 03/10/2026: Nombres de Dominio, Otras Formas de Protección, Datos Personales (partes 1 y 2), Derecho a la Imagen y primer parcial de cinco consignas aportado por el estudiante. Las fuentes oficiales enlazadas fundamentan las respuestas orientativas y aclaran diferencias normativas y jurisprudenciales del material. Para estudiar offline, abrí este archivo en el navegador.
         </footer>
       </div>
     </main>
